@@ -201,7 +201,7 @@ export function PillMotion({ containerRef }: PillMotionProps) {
               style={{ mixBlendMode: "screen" }}
             >
               <Image
-                src="/hero_image.png"
+                src="/pill-mark.png"
                 alt=""
                 fill
                 priority
