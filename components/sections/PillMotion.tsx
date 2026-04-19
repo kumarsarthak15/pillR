@@ -116,8 +116,16 @@ export function PillMotion({ containerRef }: PillMotionProps) {
         style={{ background: ambientBg }}
       />
 
-      {/* Pill anchor: right-center, fixed sane size */}
-      <div className="absolute top-1/2 right-0 -translate-y-1/2 w-[clamp(240px,34vw,520px)] aspect-[1800/505] pointer-events-none">
+      {/* Pill anchor: right-center, fixed sane size.
+          Inline styles for width + aspect — avoids Tailwind purge stripping
+          arbitrary values like w-[clamp(...)] / aspect-[1800/505] in prod. */}
+      <div
+        className="absolute top-1/2 right-0 -translate-y-1/2 pointer-events-none"
+        style={{
+          width: "clamp(240px, 34vw, 520px)",
+          aspectRatio: "1800 / 505",
+        }}
+      >
         {/* Scroll-driven transform layer */}
         <motion.div
           style={reduce ? undefined : { x, y, rotate, scale, filter }}
