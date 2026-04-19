@@ -1,9 +1,9 @@
 "use client";
 
+import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
 import { MessageCircle, ShieldCheck } from "lucide-react";
 import { whatsappUrl } from "@/lib/constants";
-import { HeroAnimation } from "./HeroAnimation";
 
 const TRUST_BADGES = [
   "CDSCO Licensed Pharmacies",
@@ -27,8 +27,43 @@ export function Hero() {
   };
 
   return (
-    <HeroAnimation ariaLabelledBy="hero-heading">
-      <div className="mx-auto max-w-container w-full px-6 py-20">
+    <section
+      className="relative min-h-screen flex items-center overflow-hidden bg-pillr-black"
+      aria-labelledby="hero-heading"
+    >
+      {/* Static pill background — right-aligned, vertically centered */}
+      <div
+        aria-hidden="true"
+        className="absolute top-1/2 right-0 pointer-events-none"
+        style={{
+          width: "min(34vw, 520px)",
+          aspectRatio: "1800 / 505",
+          transform: "translateY(-50%)",
+          mixBlendMode: "screen",
+        }}
+      >
+        <Image
+          src="/pill-mark.png"
+          alt=""
+          fill
+          priority
+          sizes="(min-width: 1024px) 520px, (min-width: 640px) 34vw, 0px"
+          className="object-contain select-none"
+          draggable={false}
+        />
+      </div>
+
+      {/* Soft red ambient glow on the right */}
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(circle at 78% 50%, rgba(220,25,30,0.18) 0%, rgba(220,25,30,0.05) 32%, transparent 62%)",
+        }}
+      />
+
+      <div className="relative z-10 mx-auto max-w-container w-full px-6 py-20">
         <div className="max-w-3xl">
           <ul className="flex flex-wrap gap-2 mb-7" aria-label="Trust signals">
             {TRUST_BADGES.map((b, i) => (
@@ -119,6 +154,6 @@ export function Hero() {
           </motion.div>
         </div>
       </div>
-    </HeroAnimation>
+    </section>
   );
 }
