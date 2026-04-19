@@ -144,8 +144,15 @@ export function PillMotion({ containerRef }: PillMotionProps) {
           >
             {/* Red bloom halo */}
             <motion.div
-              style={reduce ? undefined : { opacity: combinedGlow }}
-              className="absolute inset-[-25%] pointer-events-none"
+              style={{
+                top: "-25%",
+                right: "-25%",
+                bottom: "-25%",
+                left: "-25%",
+                position: "absolute",
+                pointerEvents: "none",
+                ...(reduce ? {} : { opacity: combinedGlow }),
+              }}
               aria-hidden="true"
             >
               <div
@@ -160,12 +167,16 @@ export function PillMotion({ containerRef }: PillMotionProps) {
 
             {/* Speed streaks — to the LEFT of pill, scale + fade with velocity */}
             <motion.div
-              style={
-                reduce
-                  ? undefined
-                  : { scaleX: trailScaleX, opacity: trailOpacity }
-              }
-              className="absolute top-[22%] bottom-[22%] right-[68%] w-[120%] origin-right pointer-events-none"
+              style={{
+                position: "absolute",
+                top: "22%",
+                bottom: "22%",
+                right: "68%",
+                width: "120%",
+                transformOrigin: "right",
+                pointerEvents: "none",
+                ...(reduce ? {} : { scaleX: trailScaleX, opacity: trailOpacity }),
+              }}
               aria-hidden="true"
             >
               {STREAKS.map((s, i) => (
