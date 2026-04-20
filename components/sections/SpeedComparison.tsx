@@ -130,26 +130,34 @@ function ComparisonBar({ row, delay }: { row: Row; delay: number }) {
       <div className="relative h-9 md:h-11 rounded-md bg-pillr-section overflow-hidden">
         <motion.div
           initial={{ scaleX: 0 }}
-          animate={inView && !reduce ? { scaleX: row.width / 100 } : {}}
+          whileInView={{ scaleX: row.width / 100 }}
+          viewport={{ once: true, margin: "-80px" }}
           transition={{
             duration: 1.1,
             delay,
             ease: [0.65, 0, 0.35, 1],
           }}
-          style={{ transformOrigin: "left center" }}
-          className={`absolute inset-y-0 left-0 w-full ${
-            row.highlight
-              ? "bg-gradient-to-r from-pillr-red via-[#FF323A] to-[#FF6B70]"
-              : "bg-gradient-to-r from-[#3F3F3F] to-[#5A5A5A]"
-          } rounded-md`}
+          /* Gradients via inline style — Tailwind purge strips arbitrary
+             color stops like via-[#FF323A] in the prod build. */
+          style={{
+            transformOrigin: "left center",
+            background: row.highlight
+              ? "linear-gradient(to right, #DC191E 0%, #FF323A 50%, #FF6B70 100%)"
+              : "linear-gradient(to right, #3F3F3F 0%, #5A5A5A 100%)",
+          }}
+          className="absolute inset-y-0 left-0 w-full rounded-md"
         >
           {/* Speed lines on the highlight bar */}
-          {row.highlight && !reduce && (
-            <SpeedLines />
-          )}
+          {row.highlight && !reduce && <SpeedLines />}
           {/* Truncation fade for very long bars */}
           {row.truncate && (
-            <div className="absolute inset-y-0 right-0 w-16 md:w-24 bg-gradient-to-l from-pillr-black/90 to-transparent" />
+            <div
+              className="absolute inset-y-0 right-0 w-16 md:w-24"
+              style={{
+                background:
+                  "linear-gradient(to left, rgba(0,0,0,0.9), transparent)",
+              }}
+            />
           )}
         </motion.div>
         {row.truncate && (
