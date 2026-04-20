@@ -182,12 +182,13 @@ function BarColumn({
           initial={{ scaleY: 0 }}
           animate={start ? { scaleY: heightPct / 100 } : {}}
           transition={{ duration: 0.7, delay, ease: [0.65, 0, 0.35, 1] }}
-          style={{ transformOrigin: "bottom center" }}
-          className={`w-full rounded-t-md ${
-            highlight
-              ? "bg-gradient-to-t from-pillr-red to-[#FF6B70]"
-              : "bg-gradient-to-t from-pillr-red/35 to-pillr-red/15"
-          }`}
+          style={{
+            transformOrigin: "bottom center",
+            background: highlight
+              ? "linear-gradient(to top, #DC191E, #FF6B70)"
+              : "linear-gradient(to top, rgba(220,25,30,0.35), rgba(220,25,30,0.15))",
+          }}
+          className="w-full rounded-t-md"
         >
           <div className="h-full" style={{ minHeight: "4px" }} />
         </motion.div>
