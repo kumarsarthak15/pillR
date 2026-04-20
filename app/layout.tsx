@@ -4,6 +4,7 @@ import { GoogleAnalytics } from "@next/third-parties/google";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { MetaPixel } from "@/components/analytics/MetaPixel";
+import { FloatingWhatsApp } from "@/components/ui/FloatingWhatsApp";
 import { SITE_CONFIG, SOCIAL_LINKS } from "@/lib/constants";
 import "./globals.css";
 
@@ -172,6 +173,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           {children}
         </main>
         <Footer />
+        <FloatingWhatsApp />
         {gaId ? <GoogleAnalytics gaId={gaId} /> : null}
         <MetaPixel />
       </body>

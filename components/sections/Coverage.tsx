@@ -7,7 +7,7 @@ import { COVERAGE_AREAS, SITE_CONFIG } from "@/lib/constants";
 
 export function Coverage() {
   return (
-    <section className="bg-pillr-black py-16 md:py-24" aria-labelledby="coverage-heading">
+    <section className="bg-pillr-black py-12 md:py-24" aria-labelledby="coverage-heading">
       <div className="mx-auto max-w-container px-6 grid gap-10 md:grid-cols-2 items-center">
         <motion.div initial="hidden" whileInView="visible" viewport={viewportOnce} variants={fadeUp}>
           <h2

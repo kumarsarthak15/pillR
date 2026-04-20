@@ -10,7 +10,7 @@ export function FinalCTA() {
 
   return (
     <section
-      className="relative overflow-hidden py-20"
+      className="relative overflow-hidden py-14 md:py-20"
       aria-labelledby="final-cta-heading"
     >
       <motion.div
@@ -27,7 +27,7 @@ export function FinalCTA() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={viewportOnce}
         transition={{ duration: 0.5, delay: 0.45 }}
-        className="relative mx-auto max-w-container px-6 text-center"
+        className="relative mx-auto max-w-container px-5 md:px-6 text-center"
       >
         <h2
           id="final-cta-heading"

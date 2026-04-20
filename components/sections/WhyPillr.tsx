@@ -27,9 +27,9 @@ const POINTS = [
 
 export function WhyPillr() {
   return (
-    <section className="bg-pillr-light py-16 md:py-24" aria-labelledby="why-heading">
+    <section className="bg-pillr-light py-12 md:py-24" aria-labelledby="why-heading">
       <div className="mx-auto max-w-container px-6">
-        <header className="text-center mb-12">
+        <header className="text-center mb-8 md:mb-12">
           <h2 id="why-heading" className="font-heading font-bold text-[28px] md:text-[36px] text-black">
             Why PillR?
           </h2>
@@ -46,7 +46,7 @@ export function WhyPillr() {
             <motion.div
               key={p.title}
               variants={scaleIn}
-              className="rounded-[20px] bg-white p-8 shadow-sm transition-all duration-base hover:-translate-y-1 hover:shadow-card-light"
+              className="rounded-[20px] bg-white p-6 md:p-8 shadow-sm transition-all duration-base hover:-translate-y-1 hover:shadow-card-light"
             >
               <div className="w-12 h-12 rounded-full bg-pillr-red/10 inline-flex items-center justify-center mb-4">
                 <p.Icon size={24} className="text-pillr-red" />

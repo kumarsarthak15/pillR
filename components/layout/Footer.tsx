@@ -20,7 +20,7 @@ export function Footer() {
 
   return (
     <footer className="bg-pillr-black border-t border-pillr-section">
-      <div className="mx-auto max-w-container px-6 py-14 grid gap-10 md:grid-cols-4">
+      <div className="mx-auto max-w-container px-5 md:px-6 py-10 md:py-14 grid gap-8 md:gap-10 md:grid-cols-4">
         <div className="md:col-span-1 space-y-4">
           <Logo size="lg" />
           <p className="text-sm text-pillr-muted leading-relaxed max-w-[260px]">
@@ -100,7 +100,7 @@ export function Footer() {
       </div>
 
       <div className="border-t border-pillr-section">
-        <div className="mx-auto max-w-container px-6 py-5 flex flex-col gap-3 text-[13px] text-pillr-muted md:flex-row md:items-center md:justify-between">
+        <div className="mx-auto max-w-container px-5 md:px-6 py-5 flex flex-col gap-3 text-[12px] md:text-[13px] text-pillr-muted md:flex-row md:items-center md:justify-between">
           <span>© {year} {SITE_CONFIG.legalEntity}. All rights reserved.</span>
           <span className="md:max-w-[60%] md:text-right">{CDSCO_DISCLAIMER}</span>
         </div>

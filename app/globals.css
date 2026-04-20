@@ -214,6 +214,19 @@ textarea {
   }
 }
 
+/* Prevent horizontal overflow from any wide background flourish */
+html,
+body {
+  overflow-x: hidden;
+}
+
+/* Slightly larger tap area on small screens */
+@media (max-width: 767px) {
+  .btn-base {
+    min-height: 50px;
+  }
+}
+
 @media print {
   html,
   body {

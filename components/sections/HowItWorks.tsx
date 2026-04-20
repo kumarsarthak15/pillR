@@ -29,9 +29,9 @@ export function HowItWorks() {
   const reduce = useReducedMotion();
 
   return (
-    <section className="bg-pillr-card py-16 md:py-24" aria-labelledby="hiw-heading">
+    <section className="bg-pillr-card py-12 md:py-24" aria-labelledby="hiw-heading">
       <div className="mx-auto max-w-container px-6">
-        <header className="text-center mb-12">
+        <header className="text-center mb-8 md:mb-12">
           <h2 id="hiw-heading" className="font-heading font-bold text-[28px] md:text-[36px] text-white">
             How It Works
           </h2>
@@ -80,7 +80,7 @@ export function HowItWorks() {
               <motion.div
                 key={s.n}
                 variants={fadeUp}
-                className="rounded-[20px] bg-pillr-section p-8 border border-transparent hover:border-pillr-red/20 hover:-translate-y-1.5 hover:shadow-hover transition-all duration-base"
+                className="rounded-[20px] bg-pillr-section p-6 md:p-8 border border-transparent hover:border-pillr-red/20 hover:-translate-y-1.5 hover:shadow-hover transition-all duration-base"
               >
                 <div className="flex items-center justify-between mb-4">
                   <span className="font-display text-5xl text-pillr-red leading-none">{s.n}</span>

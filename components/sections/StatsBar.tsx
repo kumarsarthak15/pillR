@@ -22,9 +22,9 @@ export function StatsBar() {
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section ref={ref} className="bg-pillr-black py-16" aria-label="Key stats">
-      <div className="mx-auto max-w-container px-6">
-        <div className="grid grid-cols-1 md:grid-cols-3 md:divide-x md:divide-pillr-section gap-8 md:gap-0">
+    <section ref={ref} className="bg-pillr-black py-10 md:py-16" aria-label="Key stats">
+      <div className="mx-auto max-w-container px-5 md:px-6">
+        <div className="grid grid-cols-3 md:divide-x md:divide-pillr-section gap-4 md:gap-0">
           {STATS.map((s, i) => (
             <StatItem key={i} stat={s} start={inView} />
           ))}

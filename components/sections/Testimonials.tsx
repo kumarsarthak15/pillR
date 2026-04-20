@@ -27,9 +27,9 @@ const ITEMS = [
 
 export function Testimonials() {
   return (
-    <section className="bg-pillr-section py-16 md:py-24" aria-labelledby="testimonials-heading">
+    <section className="bg-pillr-section py-12 md:py-24" aria-labelledby="testimonials-heading">
       <div className="mx-auto max-w-container px-6">
-        <header className="text-center mb-12">
+        <header className="text-center mb-8 md:mb-12">
           <h2
             id="testimonials-heading"
             className="font-heading font-bold text-[28px] md:text-[36px] text-white"
@@ -49,7 +49,7 @@ export function Testimonials() {
             <motion.li
               key={i}
               variants={slideFromLeft}
-              className="relative flex-shrink-0 w-[85%] md:w-auto snap-start rounded-[20px] bg-pillr-card p-8 border border-pillr-section"
+              className="relative flex-shrink-0 w-[85%] md:w-auto snap-start rounded-[20px] bg-pillr-card p-6 md:p-8 border border-pillr-section"
             >
               <span
                 aria-hidden="true"

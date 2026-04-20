@@ -9,7 +9,7 @@ const BENEFITS = ["Extra orders daily", "No upfront cost", "Keep your existing c
 
 export function ForShopsTeaser() {
   return (
-    <section className="bg-pillr-card py-16 md:py-24" aria-labelledby="shops-teaser-heading">
+    <section className="bg-pillr-card py-12 md:py-24" aria-labelledby="shops-teaser-heading">
       <div className="mx-auto max-w-container px-6 grid gap-10 md:grid-cols-[55fr_45fr] items-center">
         <motion.div
           initial="hidden"
