@@ -10,6 +10,7 @@ import {
 } from "lucide-react";
 import { FAQ, type FaqItem } from "@/components/sections/FAQ";
 import { PartnerForm } from "@/components/forms/PartnerForm";
+import { RevenueCalculator } from "@/components/sections/RevenueCalculator";
 
 export const metadata: Metadata = {
   title: "Partner With PillR | Zero-Cost Pharmacy Partnership",
@@ -136,6 +137,8 @@ export default function ForShopsPage() {
           </div>
         </div>
       </section>
+
+      <RevenueCalculator />
 
       <section className="bg-pillr-black py-16 md:py-24">
         <div className="mx-auto max-w-container px-6">

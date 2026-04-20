@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Hero } from "@/components/sections/Hero";
-import { HowItWorks } from "@/components/sections/HowItWorks";
+import { WhatsAppDemo } from "@/components/sections/WhatsAppDemo";
 import { WhyPillr } from "@/components/sections/WhyPillr";
+import { SpeedComparison } from "@/components/sections/SpeedComparison";
 import { StatsBar } from "@/components/sections/StatsBar";
 import { Testimonials } from "@/components/sections/Testimonials";
 import { ForShopsTeaser } from "@/components/sections/ForShopsTeaser";
@@ -20,8 +21,9 @@ export default function HomePage() {
     <>
       <LandingOverlay />
       <Hero />
-      <HowItWorks />
+      <WhatsAppDemo />
       <WhyPillr />
+      <SpeedComparison />
       <StatsBar />
       <Testimonials />
       <ForShopsTeaser />
