@@ -28,7 +28,7 @@ export function Coverage() {
           </p>
         </motion.header>
 
-        <div className="mb-12 md:mb-16">
+        <div className="mb-10 md:mb-16">
           <DeliveryRoute />
         </div>
 

@@ -91,8 +91,7 @@ export function DeliveryRoute() {
   return (
     <div
       ref={sectionRef}
-      className="relative w-full max-w-3xl mx-auto"
-      style={{ aspectRatio: `${VIEW_W} / ${VIEW_H}` }}
+      className="relative w-full max-w-3xl mx-auto delivery-route-frame"
     >
       {/* Underlying SVG: path + scooter + pulses */}
       <svg
@@ -267,15 +266,15 @@ export function DeliveryRoute() {
         </motion.g>
       </svg>
 
-      {/* Pharmacy cluster — left side, percentage-aligned with SVG endpoint */}
+      {/* Pharmacy cluster — left side. Mobile: just the main pin. */}
       <motion.div
         style={reduce ? undefined : { y: leftClusterY }}
-        className="absolute left-[6%] top-1/2 -translate-y-1/2 -translate-x-1/4 flex flex-col items-center gap-2"
+        className="absolute left-[4%] md:left-[6%] top-1/2 -translate-y-1/2 md:-translate-x-1/4 flex flex-col items-center gap-2"
       >
         <Floating delay={0}>
           <ClusterPin Icon={Pill} label="Pharmacy" />
         </Floating>
-        <div className="flex gap-2">
+        <div className="hidden md:flex gap-2">
           <Floating delay={0.7} className="opacity-70 scale-75">
             <ClusterPin Icon={Building2} compact />
           </Floating>
@@ -285,15 +284,15 @@ export function DeliveryRoute() {
         </div>
       </motion.div>
 
-      {/* Home cluster — right side */}
+      {/* Home cluster — right side. Mobile: just the main pin. */}
       <motion.div
         style={reduce ? undefined : { y: rightClusterY }}
-        className="absolute right-[6%] top-1/2 -translate-y-1/2 translate-x-1/4 flex flex-col items-center gap-2"
+        className="absolute right-[4%] md:right-[6%] top-1/2 -translate-y-1/2 md:translate-x-1/4 flex flex-col items-center gap-2"
       >
         <Floating delay={0.4}>
           <ClusterPin Icon={Home} label="You" tone="green" />
         </Floating>
-        <div className="flex gap-2">
+        <div className="hidden md:flex gap-2">
           <Floating delay={1.0} className="opacity-70 scale-75">
             <ClusterPin Icon={Home} tone="green" compact />
           </Floating>
@@ -303,10 +302,11 @@ export function DeliveryRoute() {
         </div>
       </motion.div>
 
-      {/* ETA badge — fades in mid-route */}
+      {/* ETA badge — fades in mid-route. Sits inside the frame on mobile
+          (no negative top) so it can't crash into the section header. */}
       <motion.div
         style={reduce ? undefined : { opacity: badgeOpacity, y: badgeY }}
-        className="absolute left-1/2 -top-4 -translate-x-1/2 px-3.5 py-1.5 rounded-full bg-pillr-card border border-pillr-red/40 text-xs md:text-sm font-heading font-bold text-white shadow-[0_4px_18px_rgba(220,25,30,0.35)] whitespace-nowrap"
+        className="absolute left-1/2 top-2 md:-top-4 -translate-x-1/2 px-3 md:px-3.5 py-1 md:py-1.5 rounded-full bg-pillr-card border border-pillr-red/40 text-[11px] md:text-sm font-heading font-bold text-white shadow-[0_4px_18px_rgba(220,25,30,0.35)] whitespace-nowrap"
         initial={{ opacity: 0 }}
         aria-hidden="true"
       >
@@ -331,8 +331,8 @@ function ClusterPin({
 }) {
   const ring = tone === "red" ? "border-pillr-red/40" : "border-verified/40";
   const dot = tone === "red" ? "bg-pillr-red" : "bg-verified";
-  const size = compact ? "w-9 h-9" : "w-12 h-12 md:w-14 md:h-14";
-  const iconSize = compact ? 16 : 22;
+  const size = compact ? "w-9 h-9" : "w-10 h-10 md:w-14 md:h-14";
+  const iconSize = compact ? 16 : 18;
 
   return (
     <div className="flex flex-col items-center gap-1">

@@ -227,6 +227,16 @@ body {
   }
 }
 
+/* Delivery route: taller box on mobile so clusters + path can breathe */
+.delivery-route-frame {
+  aspect-ratio: 5 / 3;
+}
+@media (min-width: 768px) {
+  .delivery-route-frame {
+    aspect-ratio: 10 / 3;
+  }
+}
+
 @media print {
   html,
   body {
