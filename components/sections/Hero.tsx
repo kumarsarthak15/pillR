@@ -28,7 +28,7 @@ export function Hero() {
 
   return (
     <section
-      className="relative min-h-[calc(100dvh-4rem)] md:min-h-screen flex items-center overflow-hidden bg-pillr-black"
+      className="relative min-h-[calc(100dvh-4rem)] md:min-h-screen flex items-start md:items-center overflow-hidden bg-pillr-black"
       aria-labelledby="hero-heading"
     >
       {/* Static pill background — md+ only (a 127px speck on mobile is noise) */}
@@ -71,9 +71,9 @@ export function Hero() {
         }}
       />
 
-      <div className="relative z-10 mx-auto max-w-container w-full px-5 md:px-6 py-12 md:py-20">
+      <div className="relative z-10 mx-auto max-w-container w-full px-5 md:px-6 pt-10 pb-14 md:py-20">
         <div className="max-w-3xl">
-          <ul className="flex flex-wrap gap-1.5 md:gap-2 mb-5 md:mb-7" aria-label="Trust signals">
+          <ul className="flex flex-wrap gap-1.5 md:gap-2 mb-7 md:mb-7" aria-label="Trust signals">
             {TRUST_BADGES.map((b, i) => (
               <motion.li
                 key={b}
@@ -91,7 +91,7 @@ export function Hero() {
 
           <h1
             id="hero-heading"
-            className="font-display text-hero text-white mb-5 flex flex-wrap gap-x-3 leading-[0.95]"
+            className="font-display text-hero text-white mb-7 md:mb-5 flex flex-wrap gap-x-3 leading-[0.95]"
           >
             {HEADLINE_WORDS.map((w, i) => {
               const isAccent = w === "30" || w === "Minutes.";
@@ -114,7 +114,7 @@ export function Hero() {
             initial={reduce ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.9, duration: 0.4 }}
-            className="text-base md:text-xl text-pillr-muted max-w-xl mb-6 md:mb-8"
+            className="text-base md:text-xl text-pillr-muted max-w-xl mb-9 md:mb-8"
           >
             No app. No queue. Just WhatsApp.
           </motion.p>
@@ -156,7 +156,7 @@ export function Hero() {
             initial={reduce ? { opacity: 1 } : { opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1.6, duration: 0.4 }}
-            className="mt-6 flex items-center gap-2 text-sm text-pillr-muted"
+            className="mt-8 md:mt-6 flex items-center gap-2 text-sm text-pillr-muted"
           >
             <span className="inline-block w-2 h-2 rounded-full bg-verified animate-pulse" />
             Trusted by 50+ pharmacies across Pune
