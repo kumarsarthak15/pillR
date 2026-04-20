@@ -140,7 +140,7 @@ function ComparisonBar({ row, delay }: { row: Row; delay: number }) {
           className={`absolute inset-y-0 left-0 w-full ${
             row.highlight
               ? "bg-gradient-to-r from-pillr-red via-[#FF323A] to-[#FF6B70]"
-              : "bg-gradient-to-r from-pillr-section to-[#3a3a3a]"
+              : "bg-gradient-to-r from-[#3F3F3F] to-[#5A5A5A]"
           } rounded-md`}
         >
           {/* Speed lines on the highlight bar */}

@@ -214,10 +214,12 @@ textarea {
   }
 }
 
-/* Prevent horizontal overflow from any wide background flourish */
+/* Prevent horizontal overflow from any wide background flourish.
+   Use `clip` (not `hidden`) — `hidden` on html/body establishes a
+   scroll container that breaks position: sticky on descendants. */
 html,
 body {
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 /* Slightly larger tap area on small screens */
