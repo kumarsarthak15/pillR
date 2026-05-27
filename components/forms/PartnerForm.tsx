@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 import { CheckCircle, Lock } from "lucide-react";
@@ -14,7 +14,7 @@ export function PartnerForm() {
     e.preventDefault();
     if (!agreed) return;
     const data = new FormData(e.currentTarget);
-    const msg = `Hi PillR! I'd like to partner my pharmacy.
+    const msg = `Hi MediGrab! I'd like to partner my pharmacy.
 
 Pharmacy Name: ${data.get("shopName")}
 Owner / Manager: ${data.get("ownerName")}
@@ -32,10 +32,10 @@ Heard from: ${data.get("source")}`;
 
   if (submitted) {
     return (
-      <div className="rounded-md bg-pillr-section border border-verified/30 p-6 text-center">
+      <div className="rounded-md bg-medigrab-section border border-verified/30 p-6 text-center">
         <CheckCircle className="mx-auto text-verified mb-3" size={36} />
         <h3 className="font-heading font-bold text-white text-lg">Application Received!</h3>
-        <p className="text-sm text-pillr-muted mt-1">We&apos;ll call you within 24 hours.</p>
+        <p className="text-sm text-medigrab-muted mt-1">We&apos;ll call you within 24 hours.</p>
       </div>
     );
   }
@@ -51,20 +51,20 @@ Heard from: ${data.get("source")}`;
       <Field name="pin" label="Pin Code" pattern="[0-9]{6}" required />
       <Select
         name="source"
-        label="How did you hear about PillR?"
+        label="How did you hear about MediGrab?"
         options={["WhatsApp", "Google", "Friend", "Social Media", "Other"]}
       />
 
-      <label className="flex items-start gap-3 text-sm text-pillr-muted cursor-pointer select-none">
+      <label className="flex items-start gap-3 text-sm text-medigrab-muted cursor-pointer select-none">
         <input
           type="checkbox"
           required
           checked={agreed}
           onChange={(e) => setAgreed(e.target.checked)}
-          className="mt-1 h-4 w-4 accent-pillr-red"
+          className="mt-1 h-4 w-4 accent-medigrab-teal"
         />
         <span>
-          I agree to receive WhatsApp messages from PillR.in for partnership updates.
+          I agree to receive WhatsApp messages from MediGrab for partnership updates.
         </span>
       </label>
 
@@ -76,7 +76,7 @@ Heard from: ${data.get("source")}`;
         Submit Application
       </button>
 
-      <p className="flex items-center justify-center gap-2 text-sm text-pillr-muted">
+      <p className="flex items-center justify-center gap-2 text-sm text-medigrab-muted">
         <Lock size={14} />
         Your information is secure and only used for partnership communication.
       </p>
@@ -95,12 +95,12 @@ type FieldProps = {
 
 function Field({ name, label, type = "text", required, textarea, pattern }: FieldProps) {
   const cls =
-    "w-full bg-pillr-black border border-pillr-section rounded-md px-3 py-3 text-base text-white placeholder:text-pillr-muted focus:outline-none focus:border-pillr-red transition-colors";
+    "w-full bg-medigrab-navy border border-medigrab-section rounded-md px-3 py-3 text-base text-white placeholder:text-medigrab-muted focus:outline-none focus:border-medigrab-teal transition-colors";
   return (
     <label htmlFor={name} className="block">
       <span className="block text-sm font-heading font-semibold text-white mb-1.5">
         {label}
-        {required ? <span className="text-pillr-red"> *</span> : null}
+        {required ? <span className="text-medigrab-teal"> *</span> : null}
       </span>
       {textarea ? (
         <textarea id={name} name={name} rows={3} required={required} className={cls} />
@@ -126,7 +126,7 @@ function Select({ name, label, options }: { name: string; label: string; options
         id={name}
         name={name}
         defaultValue=""
-        className="w-full bg-pillr-black border border-pillr-section rounded-md px-3 py-3 text-base text-white focus:outline-none focus:border-pillr-red transition-colors"
+        className="w-full bg-medigrab-navy border border-medigrab-section rounded-md px-3 py-3 text-base text-white focus:outline-none focus:border-medigrab-teal transition-colors"
       >
         <option value="" disabled>
           Select…

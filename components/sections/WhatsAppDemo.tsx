@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useRef } from "react";
 import { motion, useInView, useReducedMotion } from "framer-motion";
@@ -40,12 +40,12 @@ export function WhatsAppDemo() {
     <section
       ref={sectionRef}
       aria-labelledby="demo-heading"
-      className="relative bg-pillr-card py-14 md:py-24"
+      className="relative bg-medigrab-card py-14 md:py-24"
     >
       <div className="mx-auto max-w-container w-full px-5 md:px-6 grid md:grid-cols-[1fr_320px] lg:grid-cols-[1fr_360px] gap-10 lg:gap-14 items-center">
         {/* LEFT: copy + step captions */}
         <div className="text-center md:text-left">
-          <p className="font-heading font-bold text-pillr-red text-sm tracking-widest uppercase mb-2">
+          <p className="font-heading font-bold text-medigrab-teal text-sm tracking-widest uppercase mb-2">
             Live Demo
           </p>
           <h2
@@ -55,7 +55,7 @@ export function WhatsAppDemo() {
             Order medicine the way <br className="hidden md:block" />
             you already chat.
           </h2>
-          <p className="text-base md:text-lg text-pillr-muted mb-6 md:mb-8 max-w-md mx-auto md:mx-0">
+          <p className="text-base md:text-lg text-medigrab-muted mb-6 md:mb-8 max-w-md mx-auto md:mx-0">
             From WhatsApp to your door in 27 minutes — here&apos;s what a real order looks like.
           </p>
 
@@ -68,12 +68,12 @@ export function WhatsAppDemo() {
                 transition={{ delay: 0.6 + i * 0.18, duration: 0.4, ease: "easeOut" }}
                 className="flex gap-4 items-start"
               >
-                <div className="flex-shrink-0 w-9 h-9 rounded-full bg-pillr-red/15 border border-pillr-red/30 inline-flex items-center justify-center font-display text-pillr-red text-xl">
+                <div className="flex-shrink-0 w-9 h-9 rounded-full bg-medigrab-teal/15 border border-medigrab-teal/30 inline-flex items-center justify-center font-display text-medigrab-teal text-xl">
                   {s.n}
                 </div>
                 <div>
                   <h3 className="font-heading font-bold text-white text-base mb-0.5">{s.title}</h3>
-                  <p className="text-sm text-pillr-muted">{s.body}</p>
+                  <p className="text-sm text-medigrab-muted">{s.body}</p>
                 </div>
               </motion.li>
             ))}
@@ -117,11 +117,11 @@ function PhoneFrame({ start, reduce }: { start: boolean; reduce: boolean }) {
         style={{ background: "#1F2C34" }}
       >
         <ArrowLeft size={16} className="text-white/80" />
-        <div className="w-8 h-8 rounded-full inline-flex items-center justify-center flex-shrink-0" style={{ background: "rgba(220,25,30,0.9)" }}>
+        <div className="w-8 h-8 rounded-full inline-flex items-center justify-center flex-shrink-0" style={{ background: "rgba(29,184,154,0.9)" }}>
           <Pill size={14} className="text-white" />
         </div>
         <div className="flex-1 min-w-0">
-          <div className="text-[12px] font-semibold text-white truncate">PillR Partner</div>
+          <div className="text-[12px] font-semibold text-white truncate">MediGrab Partner</div>
           <motion.div
             initial={{ opacity: 0 }}
             animate={start ? { opacity: 1 } : {}}
@@ -194,7 +194,7 @@ function Bubble({ msg }: { msg: Msg }) {
           className="rounded-md p-1.5 mb-1 flex items-center gap-1.5"
           style={{ background: "rgba(0,0,0,0.3)" }}
         >
-          <MapPin size={12} className="text-pillr-red" />
+          <MapPin size={12} className="text-medigrab-teal" />
           <span className="text-[10px] font-medium">Location pin</span>
         </div>
         <span className="text-[10px] opacity-70">Koregaon Park</span>

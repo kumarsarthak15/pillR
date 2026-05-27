@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Bebas_Neue, Nunito, Inter } from "next/font/google";
+import { Syne, DM_Sans, DM_Mono } from "next/font/google";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
@@ -8,25 +8,25 @@ import { FloatingWhatsApp } from "@/components/ui/FloatingWhatsApp";
 import { SITE_CONFIG, SOCIAL_LINKS } from "@/lib/constants";
 import "./globals.css";
 
-const bebas = Bebas_Neue({
-  weight: "400",
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-bebas"
-});
-
-const nunito = Nunito({
+const syne = Syne({
   weight: ["600", "700", "800"],
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-nunito"
+  variable: "--font-syne"
 });
 
-const inter = Inter({
-  weight: ["400", "500"],
+const dmSans = DM_Sans({
+  weight: ["400", "500", "600"],
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-inter"
+  variable: "--font-dm-sans"
+});
+
+const dmMono = DM_Mono({
+  weight: ["400"],
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-dm-mono"
 });
 
 export const metadata: Metadata = {
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     "30 minute medicine delivery",
     "online pharmacy Pune",
     "CDSCO licensed pharmacy",
-    "PillR"
+    "MediGrab"
   ],
   manifest: "/manifest.webmanifest",
   icons: {
@@ -79,7 +79,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#000000",
+  themeColor: "#0D1F33",
   width: "device-width",
   initialScale: 1,
   maximumScale: 5
@@ -144,7 +144,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   const gaId = process.env.NEXT_PUBLIC_GA_ID; // e.g. G-XXXXXXXXXX
 
   return (
-    <html lang="en" className={`${bebas.variable} ${nunito.variable} ${inter.variable}`}>
+    <html lang="en" className={`${syne.variable} ${dmSans.variable} ${dmMono.variable}`}>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
@@ -161,10 +161,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
         />
       </head>
-      <body className="bg-pillr-black text-white antialiased">
+      <body className="bg-medigrab-navy text-white antialiased">
         <a
           href="#main-content"
-          className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[100] focus:bg-pillr-red focus:text-white focus:px-4 focus:py-2 focus:rounded-md"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[100] focus:bg-medigrab-teal focus:text-white focus:px-4 focus:py-2 focus:rounded-md"
         >
           Skip to main content
         </a>

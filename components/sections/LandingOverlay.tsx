@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { useEffect, useState } from "react";
@@ -27,7 +27,7 @@ export function LandingOverlay() {
           animate={{ clipPath: "inset(0 0 0 100%)", transition: { delay: 0.2, duration: 0.5, ease: [0.65, 0, 0.35, 1] } }}
           exit={{ opacity: 0 }}
           aria-hidden="true"
-          className="fixed inset-0 z-[60] bg-pillr-black pointer-events-none"
+          className="fixed inset-0 z-[60] bg-medigrab-navy pointer-events-none"
         />
       )}
     </AnimatePresence>

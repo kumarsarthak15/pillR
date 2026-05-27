@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "framer-motion";
 import { slideFromLeft, viewportOnce } from "@/lib/animations";
@@ -19,7 +19,7 @@ const ITEMS = [
   },
   {
     quote:
-      "I run a small pharmacy in Aundh. PillR sends me 8-12 extra orders a day. No fees, no fuss.",
+      "I run a small pharmacy in Aundh. MediGrab sends me 8-12 extra orders a day. No fees, no fuss.",
     name: "Mr. Deshmukh",
     role: "Partner Pharmacy"
   }
@@ -27,7 +27,7 @@ const ITEMS = [
 
 export function Testimonials() {
   return (
-    <section className="bg-pillr-section py-12 md:py-24" aria-labelledby="testimonials-heading">
+    <section className="bg-medigrab-section py-12 md:py-24" aria-labelledby="testimonials-heading">
       <div className="mx-auto max-w-container px-6">
         <header className="text-center mb-8 md:mb-12">
           <h2
@@ -49,11 +49,11 @@ export function Testimonials() {
             <motion.li
               key={i}
               variants={slideFromLeft}
-              className="relative flex-shrink-0 w-[85%] md:w-auto snap-start rounded-[20px] bg-pillr-card p-6 md:p-8 border border-pillr-section"
+              className="relative flex-shrink-0 w-[85%] md:w-auto snap-start rounded-[20px] bg-medigrab-card p-6 md:p-8 border border-medigrab-section"
             >
               <span
                 aria-hidden="true"
-                className="absolute -top-2 left-4 font-display text-[64px] text-pillr-red opacity-30 leading-none select-none"
+                className="absolute -top-2 left-4 font-display text-[64px] text-medigrab-teal opacity-30 leading-none select-none"
               >
                 &ldquo;
               </span>
@@ -62,7 +62,7 @@ export function Testimonials() {
               </blockquote>
               <footer className="mt-5">
                 <div className="font-heading font-semibold text-base text-white">{t.name}</div>
-                <div className="text-sm text-pillr-muted">{t.role}</div>
+                <div className="text-sm text-medigrab-muted">{t.role}</div>
               </footer>
             </motion.li>
           ))}

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useRef } from "react";
 import { motion, useInView, useReducedMotion } from "framer-motion";
@@ -8,7 +8,7 @@ import { useCountUp } from "@/lib/useCountUp";
 /**
  * Animated revenue snapshot for the /for-shops page.
  *
- * Shows what a typical PillR partner pharmacy sees on a normal day
+ * Shows what a typical MediGrab partner pharmacy sees on a normal day
  * once they're live. Numbers tick up when the section enters the
  * viewport. A 7-bar daily-orders chart fills in alongside.
  *
@@ -31,10 +31,10 @@ export function RevenueCalculator() {
   const margin = useCountUp({ from: 0, to: 22, duration: 1500, start });
 
   return (
-    <section className="bg-pillr-black py-12 md:py-24" aria-labelledby="rev-heading">
+    <section className="bg-medigrab-navy py-12 md:py-24" aria-labelledby="rev-heading">
       <div className="mx-auto max-w-container px-5 md:px-6">
         <header className="text-center mb-8 md:mb-12 max-w-2xl mx-auto">
-          <p className="font-heading font-bold text-pillr-red text-sm tracking-widest uppercase mb-2">
+          <p className="font-heading font-bold text-medigrab-teal text-sm tracking-widest uppercase mb-2">
             Real Numbers
           </p>
           <h2
@@ -51,7 +51,7 @@ export function RevenueCalculator() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
-          className="relative max-w-4xl mx-auto rounded-[24px] bg-gradient-to-br from-pillr-card to-pillr-section border border-pillr-red/20 p-6 md:p-10 overflow-hidden"
+          className="relative max-w-4xl mx-auto rounded-[24px] bg-gradient-to-br from-medigrab-card to-medigrab-section border border-medigrab-teal/20 p-6 md:p-10 overflow-hidden"
         >
           {/* Subtle red glow corner */}
           <div
@@ -59,7 +59,7 @@ export function RevenueCalculator() {
             className="absolute -top-20 -right-20 w-64 h-64 rounded-full pointer-events-none"
             style={{
               background:
-                "radial-gradient(circle, rgba(220,25,30,0.18) 0%, transparent 70%)",
+                "radial-gradient(circle, rgba(29,184,154,0.18) 0%, transparent 70%)",
               filter: "blur(20px)",
             }}
           />
@@ -83,7 +83,7 @@ export function RevenueCalculator() {
               Icon={TrendingUp}
               value={`+${Math.round(margin)}%`}
               label="Footfall lift"
-              note="vs. pre-PillR baseline"
+              note="vs. pre-MediGrab baseline"
             />
           </div>
 
@@ -93,7 +93,7 @@ export function RevenueCalculator() {
               <div className="font-heading font-bold text-white text-sm md:text-base">
                 Orders this week
               </div>
-              <div className="text-xs text-pillr-muted">
+              <div className="text-xs text-medigrab-muted">
                 {DAILY.reduce((a, b) => a + b, 0)} total
               </div>
             </div>
@@ -112,7 +112,7 @@ export function RevenueCalculator() {
             </div>
           </div>
 
-          <p className="relative mt-5 md:mt-6 text-[12px] md:text-sm text-pillr-muted">
+          <p className="relative mt-5 md:mt-6 text-[12px] md:text-sm text-medigrab-muted">
             Numbers reflect early Pune pilot averages. Your store&apos;s mix of repeat
             customers, location, and stock depth will move these up or down.
           </p>
@@ -142,7 +142,7 @@ function Stat({
       <div className="flex items-center gap-2 mb-2 md:mb-3">
         <div
           className={`w-9 h-9 md:w-10 md:h-10 rounded-xl inline-flex items-center justify-center ${
-            accent ? "bg-pillr-red/15 text-pillr-red" : "bg-verified/15 text-verified"
+            accent ? "bg-medigrab-teal/15 text-medigrab-teal" : "bg-verified/15 text-verified"
           }`}
         >
           <Icon size={18} />
@@ -154,7 +154,7 @@ function Stat({
       <div className="font-heading font-bold text-sm md:text-base text-white mt-2">
         {label}
       </div>
-      <div className="text-[11px] md:text-xs text-pillr-muted mt-0.5">{note}</div>
+      <div className="text-[11px] md:text-xs text-medigrab-muted mt-0.5">{note}</div>
     </div>
   );
 }
@@ -185,15 +185,15 @@ function BarColumn({
           style={{
             transformOrigin: "bottom center",
             background: highlight
-              ? "linear-gradient(to top, #DC191E, #FF6B70)"
-              : "linear-gradient(to top, rgba(220,25,30,0.35), rgba(220,25,30,0.15))",
+              ? "linear-gradient(to top, #1DB89A, #3ECFB0)"
+              : "linear-gradient(to top, rgba(29,184,154,0.35), rgba(29,184,154,0.15))",
           }}
           className="w-full rounded-t-md"
         >
           <div className="h-full" style={{ minHeight: "4px" }} />
         </motion.div>
       </div>
-      <div className="text-[10px] md:text-xs text-pillr-muted font-heading font-semibold">
+      <div className="text-[10px] md:text-xs text-medigrab-muted font-heading font-semibold">
         {label}
       </div>
     </div>

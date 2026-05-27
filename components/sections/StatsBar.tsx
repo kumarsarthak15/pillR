@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion, useInView, useReducedMotion } from "framer-motion";
 import { useRef } from "react";
@@ -22,9 +22,9 @@ export function StatsBar() {
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section ref={ref} className="bg-pillr-black py-10 md:py-16" aria-label="Key stats">
+    <section ref={ref} className="bg-medigrab-navy py-10 md:py-16" aria-label="Key stats">
       <div className="mx-auto max-w-container px-5 md:px-6">
-        <div className="grid grid-cols-3 md:divide-x md:divide-pillr-section gap-4 md:gap-0">
+        <div className="grid grid-cols-3 md:divide-x md:divide-medigrab-section gap-4 md:gap-0">
           {STATS.map((s, i) => (
             <StatItem key={i} stat={s} start={inView} />
           ))}
@@ -49,7 +49,7 @@ function StatItem({ stat, start }: { stat: Stat; start: boolean }) {
         transition={{ delay: 0.95, duration: 0.4, ease: "easeOut" }}
         className="relative inline-flex items-end"
       >
-        <span className="font-display text-stat text-pillr-red leading-none">
+        <span className="font-display text-stat text-medigrab-teal leading-none">
           {display}
           {stat.suffix ?? ""}
         </span>
@@ -61,7 +61,7 @@ function StatItem({ stat, start }: { stat: Stat; start: boolean }) {
             animate={{ opacity: [0, 0.18, 0] }}
             transition={{ delay: 1, duration: 0.6 }}
             style={{
-              background: "radial-gradient(circle, rgba(220,25,30,0.6) 0%, transparent 70%)",
+              background: "radial-gradient(circle, rgba(29,184,154,0.6) 0%, transparent 70%)",
               filter: "blur(20px)"
             }}
           />

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useRef } from "react";
 import {
@@ -13,7 +13,7 @@ import { useCountUp } from "@/lib/useCountUp";
 
 /**
  * Animated comparison bars. Bars race in from left as the section
- * enters the viewport; numbers count up alongside. The PillR bar has
+ * enters the viewport; numbers count up alongside. The MediGrab bar has
  * speed-line motion overlay to imply movement.
  *
  * No competitor names — generic categories so we stay legally clean.
@@ -34,7 +34,7 @@ type Row = {
 
 const ROWS: Row[] = [
   {
-    label: "PillR",
+    label: "MediGrab",
     sublabel: "WhatsApp + nearest licensed pharmacy",
     width: 100,
     value: 30,
@@ -61,12 +61,12 @@ const ROWS: Row[] = [
 export function SpeedComparison() {
   return (
     <section
-      className="bg-pillr-black py-12 md:py-24"
+      className="bg-medigrab-navy py-12 md:py-24"
       aria-labelledby="speed-heading"
     >
       <div className="mx-auto max-w-container px-5 md:px-6">
         <header className="text-center mb-8 md:mb-14 max-w-2xl mx-auto">
-          <p className="font-heading font-bold text-pillr-red text-sm tracking-widest uppercase mb-2">
+          <p className="font-heading font-bold text-medigrab-teal text-sm tracking-widest uppercase mb-2">
             The Real Numbers
           </p>
           <h2
@@ -83,7 +83,7 @@ export function SpeedComparison() {
           ))}
         </ul>
 
-        <p className="mt-8 md:mt-12 text-center text-xs md:text-sm text-pillr-muted">
+        <p className="mt-8 md:mt-12 text-center text-xs md:text-sm text-medigrab-muted">
           Times are typical for serviceable areas of Pune. Yours will vary slightly.
         </p>
       </div>
@@ -111,23 +111,23 @@ function ComparisonBar({ row, delay }: { row: Row; delay: number }) {
       <div className="md:text-right">
         <div
           className={`font-heading font-bold text-base md:text-lg ${
-            row.highlight ? "text-white" : "text-pillr-muted"
+            row.highlight ? "text-white" : "text-medigrab-muted"
           }`}
         >
           {row.label}
           {row.highlight && (
-            <span className="ml-1.5 inline-flex items-center gap-0.5 text-[10px] md:text-xs font-bold text-pillr-red align-middle">
+            <span className="ml-1.5 inline-flex items-center gap-0.5 text-[10px] md:text-xs font-bold text-medigrab-teal align-middle">
               <Zap size={11} className="inline" /> YOU
             </span>
           )}
         </div>
-        <div className="text-[11px] md:text-xs text-pillr-muted/70 leading-snug">
+        <div className="text-[11px] md:text-xs text-medigrab-muted/70 leading-snug">
           {row.sublabel}
         </div>
       </div>
 
       {/* Bar */}
-      <div className="relative h-9 md:h-11 rounded-md bg-pillr-section overflow-hidden">
+      <div className="relative h-9 md:h-11 rounded-md bg-medigrab-section overflow-hidden">
         <motion.div
           initial={{ scaleX: 0 }}
           whileInView={{ scaleX: row.width / 100 }}
@@ -142,7 +142,7 @@ function ComparisonBar({ row, delay }: { row: Row; delay: number }) {
           style={{
             transformOrigin: "left center",
             background: row.highlight
-              ? "linear-gradient(to right, #DC191E 0%, #FF323A 50%, #FF6B70 100%)"
+              ? "linear-gradient(to right, #1DB89A 0%, #3ECFB0 50%, #5DDEC8 100%)"
               : "linear-gradient(to right, #3F3F3F 0%, #5A5A5A 100%)",
           }}
           className="absolute inset-y-0 left-0 w-full rounded-md"
@@ -161,7 +161,7 @@ function ComparisonBar({ row, delay }: { row: Row; delay: number }) {
           )}
         </motion.div>
         {row.truncate && (
-          <div className="absolute right-2 inset-y-0 flex items-center text-pillr-muted/60 text-base font-bold tracking-widest">
+          <div className="absolute right-2 inset-y-0 flex items-center text-medigrab-muted/60 text-base font-bold tracking-widest">
             ⋯
           </div>
         )}
@@ -170,7 +170,7 @@ function ComparisonBar({ row, delay }: { row: Row; delay: number }) {
       {/* ETA value */}
       <div
         className={`hidden md:flex items-baseline gap-1 min-w-[72px] justify-end ${
-          row.highlight ? "text-pillr-red" : "text-pillr-muted"
+          row.highlight ? "text-medigrab-teal" : "text-medigrab-muted"
         }`}
       >
         <span className="font-display text-3xl leading-none">
@@ -182,7 +182,7 @@ function ComparisonBar({ row, delay }: { row: Row; delay: number }) {
       {/* Mobile-only ETA — sits below the bar */}
       <div
         className={`md:hidden flex items-baseline gap-1 ${
-          row.highlight ? "text-pillr-red" : "text-pillr-muted"
+          row.highlight ? "text-medigrab-teal" : "text-medigrab-muted"
         }`}
       >
         <span className="font-display text-2xl leading-none">

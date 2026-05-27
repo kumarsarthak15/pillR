@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import { LegalPageLayout, LegalH2 } from "@/components/ui/LegalPageLayout";
 import { SITE_CONFIG } from "@/lib/constants";
 
@@ -25,7 +25,7 @@ export default function PrivacyPage() {
 
       <LegalH2>1. Introduction</LegalH2>
       <p>
-        PillR.in is a technology and logistics service that connects patients with
+        MediGrab is a technology and logistics service that connects patients with
         CDSCO-licensed local pharmacies. This policy covers all data we handle in the course
         of providing that service.
       </p>
@@ -114,7 +114,7 @@ export default function PrivacyPage() {
 
       <LegalH2>10. Children&apos;s Privacy</LegalH2>
       <p>
-        PillR is for adults (18+). We do not knowingly collect personal data from children
+        MediGrab is for adults (18+). We do not knowingly collect personal data from children
         under 18. If you believe we have, contact us immediately and we will delete it.
       </p>
 

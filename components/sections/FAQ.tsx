@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { AnimatePresence, motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
@@ -9,7 +9,7 @@ export type FaqItem = { q: string; a: string };
 export function FAQ({ items }: { items: FaqItem[] }) {
   const [open, setOpen] = useState<number | null>(0);
   return (
-    <ul className="max-w-3xl mx-auto divide-y divide-pillr-section">
+    <ul className="max-w-3xl mx-auto divide-y divide-medigrab-section">
       {items.map((item, i) => {
         const isOpen = open === i;
         return (
@@ -25,7 +25,7 @@ export function FAQ({ items }: { items: FaqItem[] }) {
               <span className="font-heading font-semibold text-lg text-white">{item.q}</span>
               <ChevronDown
                 size={22}
-                className={`text-pillr-red flex-shrink-0 transition-transform duration-base ${
+                className={`text-medigrab-teal flex-shrink-0 transition-transform duration-base ${
                   isOpen ? "rotate-180" : ""
                 }`}
               />

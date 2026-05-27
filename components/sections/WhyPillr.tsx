@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "framer-motion";
 import { Clock, Shield, Smartphone } from "lucide-react";
@@ -27,11 +27,11 @@ const POINTS = [
 
 export function WhyPillr() {
   return (
-    <section className="bg-pillr-light py-12 md:py-24" aria-labelledby="why-heading">
+    <section className="bg-medigrab-frost py-12 md:py-24" aria-labelledby="why-heading">
       <div className="mx-auto max-w-container px-6">
         <header className="text-center mb-8 md:mb-12">
           <h2 id="why-heading" className="font-heading font-bold text-[28px] md:text-[36px] text-black">
-            Why PillR?
+            Why MediGrab?
           </h2>
         </header>
 
@@ -48,8 +48,8 @@ export function WhyPillr() {
               variants={scaleIn}
               className="rounded-[20px] bg-white p-6 md:p-8 shadow-sm transition-all duration-base hover:-translate-y-1 hover:shadow-card-light"
             >
-              <div className="w-12 h-12 rounded-full bg-pillr-red/10 inline-flex items-center justify-center mb-4">
-                <p.Icon size={24} className="text-pillr-red" />
+              <div className="w-12 h-12 rounded-full bg-medigrab-teal/10 inline-flex items-center justify-center mb-4">
+                <p.Icon size={24} className="text-medigrab-teal" />
               </div>
               <h3 className="font-heading font-bold text-xl text-black mb-2">{p.title}</h3>
               <p className="text-base text-[#374151]">{p.body}</p>

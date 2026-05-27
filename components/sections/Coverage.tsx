@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "framer-motion";
 import { useState } from "react";
@@ -8,7 +8,7 @@ import { DeliveryRoute } from "./DeliveryRoute";
 
 export function Coverage() {
   return (
-    <section className="bg-pillr-black py-12 md:py-24" aria-labelledby="coverage-heading">
+    <section className="bg-medigrab-navy py-12 md:py-24" aria-labelledby="coverage-heading">
       <div className="mx-auto max-w-container px-5 md:px-6">
         <motion.header
           initial="hidden"
@@ -21,9 +21,9 @@ export function Coverage() {
             id="coverage-heading"
             className="font-heading font-extrabold text-[28px] md:text-[40px] text-white mb-3"
           >
-            Now <span className="text-pillr-red">LIVE</span> in {SITE_CONFIG.city}
+            Now <span className="text-medigrab-teal">LIVE</span> in {SITE_CONFIG.city}
           </h2>
-          <p className="text-base md:text-lg text-pillr-muted max-w-xl mx-auto">
+          <p className="text-base md:text-lg text-medigrab-muted max-w-xl mx-auto">
             From your nearest licensed pharmacy to your door. Watch it move.
           </p>
         </motion.header>
@@ -42,7 +42,7 @@ export function Coverage() {
                 <span key={a}>
                   {a}
                   {i < COVERAGE_AREAS.length - 1 && (
-                    <span className="text-pillr-red mx-2" aria-hidden="true">
+                    <span className="text-medigrab-teal mx-2" aria-hidden="true">
                       •
                     </span>
                   )}
@@ -66,9 +66,9 @@ export function Coverage() {
 function WaitlistForm() {
   // TODO Phase 1: replace mailto handoff with Airtable / webhook submission.
   const [email, setEmail] = useState("");
-  const subject = encodeURIComponent("PillR — area waitlist");
+  const subject = encodeURIComponent("MediGrab — area waitlist");
   const body = encodeURIComponent(
-    `Hi PillR team, please notify me when you start delivering in my area.\n\nMy email: ${email}`
+    `Hi MediGrab team, please notify me when you start delivering in my area.\n\nMy email: ${email}`
   );
   const href = `mailto:${SITE_CONFIG.email}?subject=${subject}&body=${body}`;
 
@@ -90,7 +90,7 @@ function WaitlistForm() {
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         placeholder="you@example.com"
-        className="h-12 flex-1 rounded-md bg-pillr-card border border-pillr-section px-3 text-white placeholder:text-pillr-muted focus:outline-none focus:border-pillr-red transition-colors"
+        className="h-12 flex-1 rounded-md bg-medigrab-card border border-medigrab-section px-3 text-white placeholder:text-medigrab-muted focus:outline-none focus:border-medigrab-teal transition-colors"
       />
       <button type="submit" className="btn-base btn-whatsapp sm:w-auto">
         Notify Me

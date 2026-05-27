@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion, useReducedMotion } from "framer-motion";
 import { MessageCircle } from "lucide-react";
@@ -19,7 +19,7 @@ export function FinalCTA() {
         whileInView={{ clipPath: "inset(0 0 0 0)" }}
         viewport={viewportOnce}
         transition={{ duration: 0.6, ease: "easeOut" }}
-        className="absolute inset-0 bg-pillr-red"
+        className="absolute inset-0 bg-medigrab-teal"
       />
 
       <motion.div
@@ -35,7 +35,7 @@ export function FinalCTA() {
         >
           Your Medicines. 30 Minutes Away.
         </h2>
-        <p className="text-lg text-[#FFE4E4] mb-8">No app. No signup. Just WhatsApp.</p>
+        <p className="text-lg text-[#D1FAF0] mb-8">No app. No signup. Just WhatsApp.</p>
         <a
           href={whatsappUrl()}
           target="_blank"
@@ -45,7 +45,7 @@ export function FinalCTA() {
           <MessageCircle size={20} />
           Order on WhatsApp
         </a>
-        <p className="mt-4 text-sm text-[#FFE4E4]">It takes 10 seconds to start.</p>
+        <p className="mt-4 text-sm text-[#D1FAF0]">It takes 10 seconds to start.</p>
       </motion.div>
     </section>
   );

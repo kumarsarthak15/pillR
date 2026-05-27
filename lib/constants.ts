@@ -1,8 +1,8 @@
 export const SITE_CONFIG = {
-  name: "PillR.in",
-  domain: "pillr.in",
+  name: "MediGrab",
+  domain: "pillr.in", // domain swap pending — will update when new domain is live
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://pillr.in",
-  tagline: "Fast Medicine Delivery",
+  tagline: "Your pharmacy, just a text away.",
   description:
     "Get medicines delivered in 30 minutes via WhatsApp. From CDSCO-licensed pharmacies in Pune.",
   city: "Pune",
@@ -11,12 +11,12 @@ export const SITE_CONFIG = {
   legalEntity: "[Legal Entity Name Pvt. Ltd.]",
   address: "[Registered Business Address, Pune, Maharashtra, India — PIN]",
   phone: "+91 XXXXX XXXXX",
-  email: "hello@pillr.in",
+  email: "hello@medigrab.in",
 
   whatsappNumber: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "91XXXXXXXXXX",
   whatsappOrderMessage:
-    process.env.NEXT_PUBLIC_WHATSAPP_MESSAGE ?? "Hi PillR, I need medicines",
-  whatsappPartnerMessage: "Hi PillR! I'd like to partner my pharmacy with you."
+    process.env.NEXT_PUBLIC_WHATSAPP_MESSAGE ?? "Hi MediGrab, I need medicines",
+  whatsappPartnerMessage: "Hi MediGrab! I'd like to partner my pharmacy with you."
 } as const;
 
 export const NAV_LINKS = [
@@ -33,9 +33,9 @@ export const LEGAL_LINKS = [
 ] as const;
 
 export const SOCIAL_LINKS = [
-  { href: "https://instagram.com/pillr.in", label: "Instagram", icon: "instagram" },
-  { href: "https://twitter.com/pillrin", label: "Twitter / X", icon: "twitter" },
-  { href: "https://www.linkedin.com/company/pillr-in", label: "LinkedIn", icon: "linkedin" }
+  { href: "https://instagram.com/medigrab.in", label: "Instagram", icon: "instagram" },
+  { href: "https://twitter.com/medigrab_in", label: "Twitter / X", icon: "twitter" },
+  { href: "https://www.linkedin.com/company/medigrab", label: "LinkedIn", icon: "linkedin" }
 ] as const;
 
 export const COVERAGE_AREAS = [
@@ -48,7 +48,7 @@ export const COVERAGE_AREAS = [
 ] as const;
 
 export const CDSCO_DISCLAIMER =
-  "PillR.in is a medicine delivery facilitation service. We do not provide medical advice, diagnosis, or treatment. All medicines are dispensed by licensed pharmacy partners.";
+  "MediGrab is a medicine delivery facilitation service. We do not provide medical advice, diagnosis, or treatment. All medicines are dispensed by licensed pharmacy partners.";
 
 export function whatsappUrl(message: string = SITE_CONFIG.whatsappOrderMessage): string {
   return `https://wa.me/${SITE_CONFIG.whatsappNumber}?text=${encodeURIComponent(message)}`;

@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Link from "next/link";
 import {
   PackageCheck,
@@ -13,9 +13,9 @@ import { PartnerForm } from "@/components/forms/PartnerForm";
 import { RevenueCalculator } from "@/components/sections/RevenueCalculator";
 
 export const metadata: Metadata = {
-  title: "Partner With PillR | Zero-Cost Pharmacy Partnership",
+  title: "Partner With MediGrab | Zero-Cost Pharmacy Partnership",
   description:
-    "Join 50+ pharmacies earning more with PillR. Zero cost. No commission. Apply in 2 minutes."
+    "Join 50+ pharmacies earning more with MediGrab. Zero cost. No commission. Apply in 2 minutes."
 };
 
 const BENEFITS = [
@@ -41,7 +41,7 @@ const BENEFITS = [
     Icon: Users,
     title: "Keep Your Customers",
     body:
-      "No exclusivity required. PillR adds new customers. Your existing business stays unchanged."
+      "No exclusivity required. MediGrab adds new customers. Your existing business stays unchanged."
   }
 ];
 
@@ -53,12 +53,12 @@ const STEPS = [
 
 const FAQS: FaqItem[] = [
   {
-    q: "Is there any cost to join PillR?",
-    a: "No. Zero. PillR is completely free to join for pharmacy partners during our Pune pilot. No sign-up fee, no monthly fee, no commission on medicine prices."
+    q: "Is there any cost to join MediGrab?",
+    a: "No. Zero. MediGrab is completely free to join for pharmacy partners during our Pune pilot. No sign-up fee, no monthly fee, no commission on medicine prices."
   },
   {
-    q: "Do I need to give exclusive rights to PillR?",
-    a: "Absolutely not. You keep all existing customers and continue your direct business. PillR only adds new orders on top."
+    q: "Do I need to give exclusive rights to MediGrab?",
+    a: "Absolutely not. You keep all existing customers and continue your direct business. MediGrab only adds new orders on top."
   },
   {
     q: "How will I receive orders?",
@@ -66,7 +66,7 @@ const FAQS: FaqItem[] = [
   },
   {
     q: "Who handles delivery?",
-    a: "PillR's delivery network. You only need to pack the order. Our rider picks it up from your counter and delivers to the patient."
+    a: "MediGrab's delivery network. You only need to pack the order. Our rider picks it up from your counter and delivers to the patient."
   },
   {
     q: "What about payment?",
@@ -77,7 +77,7 @@ const FAQS: FaqItem[] = [
     a: "Simply inform us. We'll check the next nearest pharmacy in our network. Your only job is to be honest about stock."
   },
   {
-    q: "Can I leave PillR anytime?",
+    q: "Can I leave MediGrab anytime?",
     a: "Yes. No contracts. No lock-in. Just tell us and we'll stop routing orders to you immediately."
   }
 ];
@@ -85,16 +85,16 @@ const FAQS: FaqItem[] = [
 export default function ForShopsPage() {
   return (
     <>
-      <section className="bg-pillr-black min-h-[70vh] flex items-center py-20">
+      <section className="bg-medigrab-navy min-h-[70vh] flex items-center py-20">
         <div className="mx-auto max-w-container px-6 text-center">
-          <p className="font-heading font-semibold text-[13px] tracking-[0.2em] uppercase text-pillr-red mb-5">
+          <p className="font-heading font-semibold text-[13px] tracking-[0.2em] uppercase text-medigrab-teal mb-5">
             For Pharmacy Owners
           </p>
           <h1 className="font-heading font-extrabold text-[36px] md:text-[52px] text-white leading-tight max-w-3xl mx-auto mb-5">
-            Get More Customers. <span className="text-pillr-red">Zero Investment.</span>
+            Get More Customers. <span className="text-medigrab-teal">Zero Investment.</span>
           </h1>
-          <p className="text-lg md:text-xl text-pillr-muted max-w-2xl mx-auto mb-8">
-            Join 50+ pharmacies already earning extra revenue through PillR. No fees. No
+          <p className="text-lg md:text-xl text-medigrab-muted max-w-2xl mx-auto mb-8">
+            Join 50+ pharmacies already earning extra revenue through MediGrab. No fees. No
             commission on medicines. No exclusivity.
           </p>
           <a href="#partner-form" className="btn-base btn-primary">
@@ -106,7 +106,7 @@ export default function ForShopsPage() {
             {["Zero cost to join", "Cancel anytime", "No exclusivity"].map((t) => (
               <li
                 key={t}
-                className="inline-flex items-center gap-1.5 rounded-full bg-pillr-card px-3 py-1.5 text-[13px] font-heading font-semibold text-pillr-muted"
+                className="inline-flex items-center gap-1.5 rounded-full bg-medigrab-card px-3 py-1.5 text-[13px] font-heading font-semibold text-medigrab-muted"
               >
                 <ShieldCheck size={14} className="text-verified" />
                 {t}
@@ -116,7 +116,7 @@ export default function ForShopsPage() {
         </div>
       </section>
 
-      <section className="bg-pillr-card py-16 md:py-24">
+      <section className="bg-medigrab-card py-16 md:py-24">
         <div className="mx-auto max-w-container px-6">
           <h2 className="font-heading font-bold text-[28px] md:text-[36px] text-white text-center mb-12">
             What&apos;s In It For You?
@@ -125,10 +125,10 @@ export default function ForShopsPage() {
             {BENEFITS.map((b) => (
               <div
                 key={b.title}
-                className="rounded-[20px] bg-pillr-section p-8 transition-all duration-base hover:-translate-y-1 hover:shadow-hover"
+                className="rounded-[20px] bg-medigrab-section p-8 transition-all duration-base hover:-translate-y-1 hover:shadow-hover"
               >
-                <div className="w-14 h-14 rounded-full bg-pillr-red/10 inline-flex items-center justify-center mb-4">
-                  <b.Icon size={26} className="text-pillr-red" />
+                <div className="w-14 h-14 rounded-full bg-medigrab-teal/10 inline-flex items-center justify-center mb-4">
+                  <b.Icon size={26} className="text-medigrab-teal" />
                 </div>
                 <h3 className="font-heading font-bold text-xl text-white mb-2">{b.title}</h3>
                 <p className="text-base text-[#D1D5DB]">{b.body}</p>
@@ -140,15 +140,15 @@ export default function ForShopsPage() {
 
       <RevenueCalculator />
 
-      <section className="bg-pillr-black py-16 md:py-24">
+      <section className="bg-medigrab-navy py-16 md:py-24">
         <div className="mx-auto max-w-container px-6">
           <h2 className="font-heading font-bold text-[28px] md:text-[36px] text-white text-center mb-12">
             How It Works
           </h2>
           <div className="grid gap-6 md:grid-cols-3">
             {STEPS.map((s) => (
-              <div key={s.n} className="rounded-[20px] bg-pillr-card p-8">
-                <div className="font-display text-5xl text-pillr-red mb-3">{s.n}</div>
+              <div key={s.n} className="rounded-[20px] bg-medigrab-card p-8">
+                <div className="font-display text-5xl text-medigrab-teal mb-3">{s.n}</div>
                 <h3 className="font-heading font-bold text-xl text-white mb-2">{s.title}</h3>
                 <p className="text-base text-[#D1D5DB]">{s.body}</p>
               </div>
@@ -157,7 +157,7 @@ export default function ForShopsPage() {
         </div>
       </section>
 
-      <section className="bg-pillr-card py-16 md:py-24">
+      <section className="bg-medigrab-card py-16 md:py-24">
         <div className="mx-auto max-w-container px-6">
           <h2 className="font-heading font-bold text-[28px] md:text-[36px] text-white text-center mb-10">
             Frequently Asked Questions
@@ -166,23 +166,23 @@ export default function ForShopsPage() {
         </div>
       </section>
 
-      <section id="partner-form" className="bg-pillr-black py-16 md:py-24 scroll-mt-20">
+      <section id="partner-form" className="bg-medigrab-navy py-16 md:py-24 scroll-mt-20">
         <div className="mx-auto max-w-container px-6">
           <header className="text-center max-w-2xl mx-auto mb-10">
             <h2 className="font-heading font-bold text-[28px] md:text-[36px] text-white mb-3">
-              Partner With PillR
+              Partner With MediGrab
             </h2>
-            <p className="text-pillr-muted">
+            <p className="text-medigrab-muted">
               Fill in the details. We&apos;ll reach out within 24 hours.
             </p>
           </header>
 
-          <div className="max-w-2xl mx-auto rounded-[20px] bg-pillr-card border border-pillr-section p-6 md:p-8">
+          <div className="max-w-2xl mx-auto rounded-[20px] bg-medigrab-card border border-medigrab-section p-6 md:p-8">
             <PartnerForm />
           </div>
 
-          <p className="text-center mt-6 text-sm text-pillr-muted">
-            Want to chat first? <Link href="/contact" className="text-pillr-red hover:underline">Contact us</Link>.
+          <p className="text-center mt-6 text-sm text-medigrab-muted">
+            Want to chat first? <Link href="/contact" className="text-medigrab-teal hover:underline">Contact us</Link>.
           </p>
         </div>
       </section>

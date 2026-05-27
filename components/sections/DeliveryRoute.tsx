@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useRef, useState } from "react";
 import {
@@ -102,8 +102,8 @@ export function DeliveryRoute() {
       >
         <defs>
           <linearGradient id="routeGrad" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%" stopColor="#DC191E" stopOpacity="1" />
-            <stop offset="100%" stopColor="#FF4D52" stopOpacity="1" />
+            <stop offset="0%" stopColor="#1DB89A" stopOpacity="1" />
+            <stop offset="100%" stopColor="#3ECFB0" stopOpacity="1" />
           </linearGradient>
           <filter id="dotGlow" x="-50%" y="-50%" width="200%" height="200%">
             <feGaussianBlur stdDeviation="3" />
@@ -116,7 +116,7 @@ export function DeliveryRoute() {
           ref={pathRef}
           d={PATH_D}
           fill="none"
-          stroke="rgba(220,25,30,0.16)"
+          stroke="rgba(29,184,154,0.16)"
           strokeWidth="3"
           strokeDasharray="2 8"
           strokeLinecap="round"
@@ -141,7 +141,7 @@ export function DeliveryRoute() {
             cx="110"
             cy="130"
             r="14"
-            fill="#DC191E"
+            fill="#1DB89A"
             opacity="0.25"
             animate={
               reduce
@@ -151,7 +151,7 @@ export function DeliveryRoute() {
             transition={{ duration: 2.2, repeat: Infinity, ease: "easeOut" }}
             style={{ transformOrigin: "110px 130px" }}
           />
-          <circle cx="110" cy="130" r="7" fill="#DC191E" filter="url(#dotGlow)" />
+          <circle cx="110" cy="130" r="7" fill="#1DB89A" filter="url(#dotGlow)" />
           <circle cx="110" cy="130" r="3" fill="#fff" />
         </g>
 
@@ -199,7 +199,7 @@ export function DeliveryRoute() {
             y1="0"
             x2="-10"
             y2="0"
-            stroke="#FF4D52"
+            stroke="#1DB89A"
             strokeWidth="2.5"
             strokeLinecap="round"
             initial={{ opacity: 0 }}
@@ -211,7 +211,7 @@ export function DeliveryRoute() {
             y1="-4"
             x2="-12"
             y2="-4"
-            stroke="#FF4D52"
+            stroke="#1DB89A"
             strokeWidth="1.5"
             strokeLinecap="round"
             initial={{ opacity: 0 }}
@@ -223,7 +223,7 @@ export function DeliveryRoute() {
             y1="4"
             x2="-12"
             y2="4"
-            stroke="#FF4D52"
+            stroke="#1DB89A"
             strokeWidth="1.5"
             strokeLinecap="round"
             initial={{ opacity: 0 }}
@@ -237,20 +237,20 @@ export function DeliveryRoute() {
             transition={{ type: "spring", stiffness: 280, damping: 18 }}
           >
             {/* Glow under wheels */}
-            <ellipse cx="0" cy="9" rx="14" ry="2" fill="rgba(220,25,30,0.4)" />
+            <ellipse cx="0" cy="9" rx="14" ry="2" fill="rgba(29,184,154,0.4)" />
             {/* Wheels */}
-            <circle cx="-9" cy="6" r="4.5" fill="#1A1A1A" stroke="#fff" strokeWidth="1" />
-            <circle cx="9" cy="6" r="4.5" fill="#1A1A1A" stroke="#fff" strokeWidth="1" />
+            <circle cx="-9" cy="6" r="4.5" fill="#0D1F33" stroke="#fff" strokeWidth="1" />
+            <circle cx="9" cy="6" r="4.5" fill="#0D1F33" stroke="#fff" strokeWidth="1" />
             {/* Body */}
             <path
               d="M -10 -2 L 4 -2 Q 8 -2 10 2 L 12 6 L -8 6 Q -12 6 -12 2 Z"
-              fill="#DC191E"
+              fill="#1DB89A"
               stroke="#fff"
               strokeWidth="0.8"
               strokeLinejoin="round"
             />
             {/* Rider helmet */}
-            <circle cx="0" cy="-7" r="3.5" fill="#1A1A1A" />
+            <circle cx="0" cy="-7" r="3.5" fill="#0D1F33" />
             <rect x="-2" y="-9" width="4" height="2.5" rx="1" fill="rgba(255,255,255,0.4)" />
             {/* Handlebar */}
             <line
@@ -306,11 +306,11 @@ export function DeliveryRoute() {
           (no negative top) so it can't crash into the section header. */}
       <motion.div
         style={reduce ? undefined : { opacity: badgeOpacity, y: badgeY }}
-        className="absolute left-1/2 top-2 md:-top-4 -translate-x-1/2 px-3 md:px-3.5 py-1 md:py-1.5 rounded-full bg-pillr-card border border-pillr-red/40 text-[11px] md:text-sm font-heading font-bold text-white shadow-[0_4px_18px_rgba(220,25,30,0.35)] whitespace-nowrap"
+        className="absolute left-1/2 top-2 md:-top-4 -translate-x-1/2 px-3 md:px-3.5 py-1 md:py-1.5 rounded-full bg-medigrab-card border border-medigrab-teal/40 text-[11px] md:text-sm font-heading font-bold text-white shadow-[0_4px_18px_rgba(29,184,154,0.35)] whitespace-nowrap"
         initial={{ opacity: 0 }}
         aria-hidden="true"
       >
-        <span className="text-pillr-red">⚡</span> ~20 min delivery
+        <span className="text-medigrab-teal">⚡</span> ~20 min delivery
       </motion.div>
     </div>
   );
@@ -329,17 +329,17 @@ function ClusterPin({
   tone?: "red" | "green";
   compact?: boolean;
 }) {
-  const ring = tone === "red" ? "border-pillr-red/40" : "border-verified/40";
-  const dot = tone === "red" ? "bg-pillr-red" : "bg-verified";
+  const ring = tone === "red" ? "border-medigrab-teal/40" : "border-verified/40";
+  const dot = tone === "red" ? "bg-medigrab-teal" : "bg-verified";
   const size = compact ? "w-9 h-9" : "w-10 h-10 md:w-14 md:h-14";
   const iconSize = compact ? 16 : 18;
 
   return (
     <div className="flex flex-col items-center gap-1">
       <div
-        className={`${size} rounded-2xl bg-pillr-card border ${ring} inline-flex items-center justify-center shadow-lg`}
+        className={`${size} rounded-2xl bg-medigrab-card border ${ring} inline-flex items-center justify-center shadow-lg`}
       >
-        <Icon size={iconSize} className={tone === "red" ? "text-pillr-red" : "text-verified"} />
+        <Icon size={iconSize} className={tone === "red" ? "text-medigrab-teal" : "text-verified"} />
       </div>
       {label && (
         <div className="flex items-center gap-1 text-[10px] md:text-xs font-heading font-bold text-white">

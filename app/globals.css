@@ -3,14 +3,17 @@
 @tailwind utilities;
 
 :root {
-  --pillr-red: #DC191E;
-  --pillr-red-dark: #A00D11;
-  --pillr-red-light: #FF4D52;
-  --pillr-black: #000000;
-  --pillr-card: #111111;
-  --pillr-section: #1A1A1A;
-  --pillr-light: #F4F4F4;
-  --pillr-muted: #9CA3AF;
+  --medigrab-teal: #1DB89A;
+  --medigrab-teal-dark: #169478;
+  --medigrab-teal-light: #3ECFB0;
+  --medigrab-navy: #0D1F33;
+  --medigrab-card: #13293D;
+  --medigrab-section: #1A2E40;
+  --medigrab-frost: #F0FAF7;
+  --medigrab-muted: #6B7280;
+  --medigrab-amber: #F59E0B;
+  --medigrab-body-gray: #354D60;
+  --medigrab-teal-tint: #D1FAF0;
   --whatsapp: #25D366;
   --verified: #16A34A;
 
@@ -18,8 +21,8 @@
   --radius-md: 12px;
   --radius-lg: 20px;
 
-  --shadow-card: 0 4px 16px rgba(220, 25, 30, 0.08);
-  --shadow-hover: 0 8px 32px rgba(220, 25, 30, 0.25);
+  --shadow-card: 0 4px 16px rgba(29, 184, 154, 0.10);
+  --shadow-hover: 0 8px 32px rgba(29, 184, 154, 0.28);
   --shadow-cta: 0 4px 24px rgba(37, 211, 102, 0.35);
 
   --transition-fast: 150ms;
@@ -30,7 +33,7 @@
 }
 
 html {
-  background-color: var(--pillr-black);
+  background-color: var(--medigrab-navy);
   color: #ffffff;
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
@@ -38,16 +41,16 @@ html {
 }
 
 body {
-  background-color: var(--pillr-black);
+  background-color: var(--medigrab-navy);
   color: #ffffff;
-  font-family: var(--font-inter), system-ui, sans-serif;
+  font-family: var(--font-dm-sans), system-ui, sans-serif;
   font-size: 16px;
-  line-height: 1.6;
+  line-height: 1.65;
   min-height: 100dvh;
 }
 
 ::selection {
-  background: var(--pillr-red);
+  background: var(--medigrab-teal);
   color: #ffffff;
 }
 
@@ -60,7 +63,7 @@ button,
 input,
 textarea,
 select {
-  font-family: var(--font-inter), system-ui, sans-serif;
+  font-family: var(--font-dm-sans), system-ui, sans-serif;
 }
 
 input,
@@ -70,7 +73,7 @@ textarea {
 }
 
 :focus-visible {
-  outline: 3px solid var(--pillr-red);
+  outline: 3px solid var(--medigrab-teal);
   outline-offset: 3px;
   border-radius: 4px;
 }
@@ -105,8 +108,8 @@ textarea {
     min-height: 48px;
     padding: 0.75rem 1.5rem;
     border-radius: var(--radius-md);
-    font-family: var(--font-nunito), system-ui, sans-serif;
-    font-weight: 700;
+    font-family: var(--font-dm-sans), system-ui, sans-serif;
+    font-weight: 600;
     font-size: 16px;
     line-height: 1;
     transition: all var(--transition-base) ease;
@@ -115,12 +118,12 @@ textarea {
   }
 
   .btn-primary {
-    background: var(--pillr-red);
+    background: var(--medigrab-teal);
     color: #ffffff;
     box-shadow: var(--shadow-card);
   }
   .btn-primary:hover {
-    background: var(--pillr-red-dark);
+    background: var(--medigrab-teal-dark);
     box-shadow: var(--shadow-hover);
     transform: translateY(-1px);
   }
@@ -135,29 +138,50 @@ textarea {
     box-shadow: 0 6px 28px rgba(37, 211, 102, 0.55);
   }
 
-  .btn-outline-red {
+  .btn-outline-teal {
     background: transparent;
-    color: var(--pillr-red);
-    border: 2px solid var(--pillr-red);
+    color: var(--medigrab-teal);
+    border: 2px solid var(--medigrab-teal);
   }
-  .btn-outline-red:hover {
-    background: var(--pillr-red);
+  .btn-outline-teal:hover {
+    background: var(--medigrab-teal);
     color: #ffffff;
   }
 
+  /* Legacy alias — keep for any existing usage */
+  .btn-outline-red {
+    background: transparent;
+    color: var(--medigrab-teal);
+    border: 2px solid var(--medigrab-teal);
+  }
+  .btn-outline-red:hover {
+    background: var(--medigrab-teal);
+    color: #ffffff;
+  }
+
+  .btn-on-teal {
+    background: #0D1F33;
+    color: #ffffff;
+  }
+  .btn-on-teal:hover {
+    background: #13293D;
+    transform: scale(1.02);
+  }
+
+  /* Legacy alias */
   .btn-on-red {
-    background: #000000;
+    background: #0D1F33;
     color: #ffffff;
   }
   .btn-on-red:hover {
-    background: #111111;
+    background: #13293D;
     transform: scale(1.02);
   }
 
   .nav-link {
     position: relative;
     padding: 0.25rem 0;
-    color: var(--pillr-muted);
+    color: var(--medigrab-muted);
     font-size: 16px;
     transition: color var(--transition-fast) ease;
   }
@@ -168,7 +192,7 @@ textarea {
     bottom: -4px;
     height: 2px;
     width: 0;
-    background: var(--pillr-red);
+    background: var(--medigrab-teal);
     transition: width 180ms ease;
   }
   .nav-link:hover {
@@ -194,10 +218,10 @@ textarea {
   }
   .legal-prose ul::marker,
   .legal-prose ol::marker {
-    color: var(--pillr-red);
+    color: var(--medigrab-teal);
   }
   .legal-prose a {
-    color: var(--pillr-red);
+    color: var(--medigrab-teal);
     text-decoration: none;
   }
   .legal-prose a:hover {

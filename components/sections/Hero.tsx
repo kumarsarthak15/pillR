@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
@@ -28,7 +28,7 @@ export function Hero() {
 
   return (
     <section
-      className="relative min-h-[calc(100dvh-4rem)] md:min-h-screen flex items-start md:items-center overflow-hidden bg-pillr-black"
+      className="relative min-h-[calc(100dvh-4rem)] md:min-h-screen flex items-start md:items-center overflow-hidden bg-medigrab-navy"
       aria-labelledby="hero-heading"
     >
       {/* Static pill background — md+ only (a 127px speck on mobile is noise) */}
@@ -59,7 +59,7 @@ export function Hero() {
         className="absolute inset-0 pointer-events-none md:hidden"
         style={{
           background:
-            "radial-gradient(circle at 50% 0%, rgba(220,25,30,0.20) 0%, rgba(220,25,30,0.05) 35%, transparent 65%)",
+            "radial-gradient(circle at 50% 0%, rgba(29,184,154,0.20) 0%, rgba(29,184,154,0.05) 35%, transparent 65%)",
         }}
       />
       <div
@@ -67,7 +67,7 @@ export function Hero() {
         className="absolute inset-0 pointer-events-none hidden md:block"
         style={{
           background:
-            "radial-gradient(circle at 78% 50%, rgba(220,25,30,0.18) 0%, rgba(220,25,30,0.05) 32%, transparent 62%)",
+            "radial-gradient(circle at 78% 50%, rgba(29,184,154,0.18) 0%, rgba(29,184,154,0.05) 32%, transparent 62%)",
         }}
       />
 
@@ -80,7 +80,7 @@ export function Hero() {
                 initial={reduce ? { opacity: 1, x: 0 } : { opacity: 0, x: -16 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 1.1 + i * 0.08, duration: 0.35, ease: "easeOut" }}
-                className="inline-flex items-center gap-1 md:gap-1.5 rounded-full bg-pillr-card px-2.5 md:px-3 py-1 text-[11px] md:text-[13px] font-heading font-semibold text-pillr-muted"
+                className="inline-flex items-center gap-1 md:gap-1.5 rounded-full bg-medigrab-card px-2.5 md:px-3 py-1 text-[11px] md:text-[13px] font-heading font-semibold text-medigrab-muted"
               >
                 <ShieldCheck size={12} className="text-verified md:hidden" />
                 <ShieldCheck size={14} className="text-verified hidden md:inline" />
@@ -102,7 +102,7 @@ export function Hero() {
                   initial="hidden"
                   animate="visible"
                   variants={wordVariants}
-                  className={`inline-block ${isAccent ? "text-pillr-red" : ""}`}
+                  className={`inline-block ${isAccent ? "text-medigrab-teal" : ""}`}
                 >
                   {w}
                 </motion.span>
@@ -114,7 +114,7 @@ export function Hero() {
             initial={reduce ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.9, duration: 0.4 }}
-            className="text-base md:text-xl text-pillr-muted max-w-xl mb-9 md:mb-8"
+            className="text-base md:text-xl text-medigrab-muted max-w-xl mb-9 md:mb-8"
           >
             No app. No queue. Just WhatsApp.
           </motion.p>
@@ -156,7 +156,7 @@ export function Hero() {
             initial={reduce ? { opacity: 1 } : { opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1.6, duration: 0.4 }}
-            className="mt-8 md:mt-6 flex items-center gap-2 text-sm text-pillr-muted"
+            className="mt-8 md:mt-6 flex items-center gap-2 text-sm text-medigrab-muted"
           >
             <span className="inline-block w-2 h-2 rounded-full bg-verified animate-pulse" />
             Trusted by 50+ pharmacies across Pune

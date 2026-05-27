@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import Link from "next/link";
@@ -28,7 +28,7 @@ export function Navbar() {
 
   const headerCls = `fixed top-0 inset-x-0 z-50 transition-colors duration-base ${
     scrolled || open
-      ? "bg-pillr-black/95 backdrop-blur-lg border-b border-pillr-section"
+      ? "bg-medigrab-navy/95 backdrop-blur-lg border-b border-medigrab-section"
       : "bg-transparent"
   }`;
 
@@ -81,7 +81,7 @@ export function Navbar() {
             animate={{ opacity: 1, x: 0 }}
             exit={reduce ? { opacity: 0 } : { opacity: 0, x: 60 }}
             transition={{ duration: reduce ? 0 : 0.25, ease: "easeOut" }}
-            className="md:hidden fixed inset-0 z-40 bg-pillr-black pt-16 px-6 pb-8 flex flex-col"
+            className="md:hidden fixed inset-0 z-40 bg-medigrab-navy pt-16 px-6 pb-8 flex flex-col"
           >
             <nav className="flex-1 flex flex-col items-center justify-center gap-8" aria-label="Mobile">
               {NAV_LINKS.map((l) => (
@@ -89,7 +89,7 @@ export function Navbar() {
                   key={l.href}
                   href={l.href}
                   onClick={() => setOpen(false)}
-                  className="text-2xl font-heading font-bold text-white hover:text-pillr-red transition-colors"
+                  className="text-2xl font-heading font-bold text-white hover:text-medigrab-teal transition-colors"
                 >
                   {l.label}
                 </Link>
@@ -97,7 +97,7 @@ export function Navbar() {
               <Link
                 href="/for-shops"
                 onClick={() => setOpen(false)}
-                className="text-lg text-pillr-red font-heading font-bold mt-4"
+                className="text-lg text-medigrab-teal font-heading font-bold mt-4"
               >
                 Partner With Us
               </Link>

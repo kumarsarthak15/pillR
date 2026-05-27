@@ -1,12 +1,12 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Link from "next/link";
 import { Zap, ShieldCheck, Smartphone, MapPin } from "lucide-react";
 import { SITE_CONFIG } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: "About PillR | Fast Medicine Delivery in Pune",
+  title: "About MediGrab | Fast Medicine Delivery in Pune",
   description:
-    "Built in Pune. For Pune. The story behind PillR — why we are rebuilding medicine access on WhatsApp."
+    "Built in Pune. For Pune. The story behind MediGrab — why we are rebuilding medicine access on WhatsApp."
 };
 
 const VALUES = [
@@ -19,19 +19,19 @@ const VALUES = [
 export default function AboutPage() {
   return (
     <>
-      <section className="bg-pillr-black py-20">
+      <section className="bg-medigrab-navy py-20">
         <div className="mx-auto max-w-container px-6 max-w-4xl">
           <h1 className="font-heading font-extrabold text-[36px] md:text-[52px] text-white mb-5 leading-tight">
-            The Story Behind PillR
+            The Story Behind MediGrab
           </h1>
-          <p className="text-lg md:text-xl text-pillr-muted max-w-3xl">
+          <p className="text-lg md:text-xl text-medigrab-muted max-w-3xl">
             Built in {SITE_CONFIG.city}. For {SITE_CONFIG.city}. By people who were tired of
             waiting 45 minutes for a Crocin.
           </p>
         </div>
       </section>
 
-      <section className="bg-pillr-card py-20">
+      <section className="bg-medigrab-card py-20">
         <div className="mx-auto max-w-container px-6">
           <h2 className="font-heading font-bold text-[28px] md:text-[36px] text-white mb-10">
             The Problem We&apos;re Solving
@@ -52,7 +52,7 @@ export default function AboutPage() {
               </p>
             </div>
             <div>
-              <h3 className="font-heading font-bold text-xl text-white mb-3">The PillR fix.</h3>
+              <h3 className="font-heading font-bold text-xl text-white mb-3">The MediGrab fix.</h3>
               <p className="text-[#D1D5DB] mb-3">
                 WhatsApp-native. 30-minute delivery. Only licensed pharmacies. Human-first
                 support — a real pharmacist, not a chatbot.
@@ -66,7 +66,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="bg-pillr-black py-20">
+      <section className="bg-medigrab-navy py-20">
         <div className="mx-auto max-w-container px-6">
           <h2 className="font-heading font-bold text-[28px] md:text-[36px] text-white text-center mb-12">
             How We Work
@@ -74,32 +74,32 @@ export default function AboutPage() {
           <div className="grid gap-6 md:grid-cols-3 text-center">
             {[
               { title: "Patients", body: "Order on WhatsApp. No app. No friction." },
-              { title: "PillR", body: "We route, coordinate, and deliver. Facilitator only — never a pharmacy." },
+              { title: "MediGrab", body: "We route, coordinate, and deliver. Facilitator only — never a pharmacy." },
               { title: "Pharmacies", body: "Licensed local partners. They dispense and bill. We handle the rest." }
             ].map((c) => (
-              <div key={c.title} className="rounded-[20px] bg-pillr-card p-8">
+              <div key={c.title} className="rounded-[20px] bg-medigrab-card p-8">
                 <h3 className="font-heading font-bold text-xl text-white mb-3">{c.title}</h3>
                 <p className="text-[#D1D5DB] text-base">{c.body}</p>
               </div>
             ))}
           </div>
-          <p className="text-center text-sm text-pillr-muted mt-8 max-w-2xl mx-auto">
-            PillR is a facilitator. We do not stock, dispense, or prescribe medicines. All
+          <p className="text-center text-sm text-medigrab-muted mt-8 max-w-2xl mx-auto">
+            MediGrab is a facilitator. We do not stock, dispense, or prescribe medicines. All
             medicines are dispensed by licensed pharmacy partners.
           </p>
         </div>
       </section>
 
-      <section className="bg-pillr-section py-20">
+      <section className="bg-medigrab-section py-20">
         <div className="mx-auto max-w-container px-6">
           <h2 className="font-heading font-bold text-[28px] md:text-[36px] text-white text-center mb-12">
             What We Believe
           </h2>
           <div className="grid gap-6 sm:grid-cols-2">
             {VALUES.map((v) => (
-              <div key={v.title} className="rounded-[20px] bg-pillr-card p-8">
-                <div className="w-12 h-12 rounded-full bg-pillr-red/10 inline-flex items-center justify-center mb-4">
-                  <v.Icon size={24} className="text-pillr-red" />
+              <div key={v.title} className="rounded-[20px] bg-medigrab-card p-8">
+                <div className="w-12 h-12 rounded-full bg-medigrab-teal/10 inline-flex items-center justify-center mb-4">
+                  <v.Icon size={24} className="text-medigrab-teal" />
                 </div>
                 <h3 className="font-heading font-bold text-xl text-white mb-2">{v.title}</h3>
                 <p className="text-base text-[#D1D5DB]">{v.body}</p>
@@ -109,7 +109,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="bg-pillr-black py-20">
+      <section className="bg-medigrab-navy py-20">
         <div className="mx-auto max-w-container px-6 max-w-3xl">
           <h2 className="font-heading font-bold text-[28px] md:text-[36px] text-white mb-6">
             The Team
@@ -123,12 +123,12 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="bg-pillr-card py-16">
+      <section className="bg-medigrab-card py-16">
         <div className="mx-auto max-w-container px-6 text-center">
           <h2 className="font-heading font-bold text-2xl md:text-3xl text-white mb-4">
             Want to partner or invest?
           </h2>
-          <p className="text-pillr-muted mb-6">Let&apos;s talk.</p>
+          <p className="text-medigrab-muted mb-6">Let&apos;s talk.</p>
           <Link href="/contact" className="btn-base btn-primary">
             Get in Touch
           </Link>
