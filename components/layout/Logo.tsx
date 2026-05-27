@@ -16,19 +16,24 @@ const HEIGHTS: Record<NonNullable<Props["size"]>, number> = {
 };
 
 /**
- * MediGrab logo — vector recreation of the flying-pill identity.
+ * MediGrab logo — pixel-faithful vector recreation of the official brand identity.
  *
- * Geometry (local coords, before rotation):
- *   Pill: 50 × 24 px capsule. Left half white, right half teal.
- *   White cross on teal half. Gloss arc on white half.
- *   7 speed-lines fan from the pill's left edge, all at the same tilt
- *   as the pill (-14°), so the whole thing rotates together.
- *   Wordmark: "Medi" (#FFF) + "Grab" (#1DB89A) in Syne ExtraBold.
+ * Key geometry (local coords inside the rotation group):
+ *   Pill: cap radius 13, total 62 × 26 capsule. ENTIRELY teal #1DB89A —
+ *         no white left half, single solid colour throughout.
+ *   White medical cross on the right half. Gloss arc upper-left.
+ *   5 speed-lines fan from the rear (left end) at the same -18° tilt as
+ *   the pill (all live in the same rotation group so they tilt together).
+ *
+ *   Wordmark: "Medi" white + "Grab" teal, Syne ExtraBold 22 px.
+ *   Uses a single <text> with two <tspan> children so "Grab" starts exactly
+ *   where "Medi" ends — zero manual offset, zero gap.
+ *
+ * ViewBox: 260 × 52  →  at size="md" renders ~200 × 40 px
  */
 export function Logo({ className = "", size = "md" }: Props) {
   const h = HEIGHTS[size];
-  // viewBox is 230 × 52
-  const w = Math.round((230 / 52) * h);
+  const w = Math.round((260 / 52) * h);
 
   return (
     <Link
@@ -39,73 +44,57 @@ export function Logo({ className = "", size = "md" }: Props) {
       <svg
         width={w}
         height={h}
-        viewBox="0 0 230 52"
+        viewBox="0 0 260 52"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
         aria-hidden="true"
       >
         {/*
          * Flying-pill group.
-         * translate(68, 26) puts the pill centre in the left third.
-         * rotate(-14) tilts everything -14° (nose up, tail down-left).
-         * All speed-lines live inside this group so they share the tilt.
+         * translate(58, 26) centres the pill in the left quarter.
+         * rotate(-18) tilts nose up-right / tail down-left, matching brand kit.
          */}
-        <g transform="translate(68,26) rotate(-14)">
+        <g transform="translate(58,26) rotate(-18)">
 
-          {/* ── Speed lines (drawn first / behind pill) ── */}
-          {/* Centre (longest) */}
-          <rect x="-62" y="-1.5" width="34" height="3"   rx="1.5"  fill="#1DB89A" />
+          {/* ── Speed lines (drawn first — behind pill) ── */}
+          {/* Centre: longest, highest opacity */}
+          <rect x="-58" y="-2"    width="38" height="4"   rx="2"    fill="#1DB89A" opacity="0.90" />
           {/* ±1 row */}
-          <rect x="-56" y="-6.5" width="28" height="2.5" rx="1.25" fill="#1DB89A" opacity="0.78" />
-          <rect x="-56" y="4"    width="28" height="2.5" rx="1.25" fill="#1DB89A" opacity="0.78" />
-          {/* ±2 row */}
-          <rect x="-49" y="-11.5" width="21" height="2"  rx="1"    fill="#1DB89A" opacity="0.52" />
-          <rect x="-49" y="9.5"   width="21" height="2"  rx="1"    fill="#1DB89A" opacity="0.52" />
-          {/* ±3 row (outermost, faintest) */}
-          <rect x="-41" y="-16.5" width="13" height="1.5" rx="0.75" fill="#1DB89A" opacity="0.28" />
-          <rect x="-41" y="15"    width="13" height="1.5" rx="0.75" fill="#1DB89A" opacity="0.28" />
+          <rect x="-52" y="-8.5"  width="31" height="3"   rx="1.5"  fill="#1DB89A" opacity="0.64" />
+          <rect x="-52" y="5.5"   width="31" height="3"   rx="1.5"  fill="#1DB89A" opacity="0.64" />
+          {/* ±2 row — outermost, faintest */}
+          <rect x="-44" y="-14.5" width="22" height="2.5" rx="1.25" fill="#1DB89A" opacity="0.32" />
+          <rect x="-44" y="12"    width="22" height="2.5" rx="1.25" fill="#1DB89A" opacity="0.32" />
 
-          {/* ── Pill capsule ── */}
-          {/* White left half: left cap + centre-left rect */}
-          <circle cx="-14" cy="0" r="12" fill="white" />
-          <rect   x="-14" y="-12" width="14" height="24" fill="white" />
-          {/* Teal right half: centre-right rect + right cap */}
-          <rect   x="0"  y="-12" width="14" height="24" fill="#1DB89A" />
-          <circle cx="14" cy="0" r="12" fill="#1DB89A" />
-          {/* Centre seam */}
-          <line x1="0" y1="-12" x2="0" y2="12"
-                stroke="rgba(13,31,51,0.18)" strokeWidth="1.5" />
-          {/* White cross on teal (medical symbol) */}
-          <rect x="8.5" y="-5"   width="2.5" height="10" rx="1.25" fill="white" />
-          <rect x="4"   y="-1.5" width="11"  height="3"  rx="1.5"  fill="white" />
-          {/* Gloss highlight on white half */}
-          <ellipse cx="-5" cy="-7" rx="7" ry="3"
-                   fill="rgba(255,255,255,0.30)"
-                   transform="rotate(-10,-5,-7)" />
+          {/* ── Pill capsule — entirely teal, matching brand identity ── */}
+          <circle cx="-16" cy="0" r="13" fill="#1DB89A" />
+          <rect   x="-16" y="-13" width="32" height="26" fill="#1DB89A" />
+          <circle cx="16"  cy="0" r="13" fill="#1DB89A" />
+
+          {/* White medical cross on right half */}
+          <rect x="9.5" y="-6.5" width="3"   height="13" rx="1.5" fill="white" />
+          <rect x="4"   y="-2"   width="12"  height="4"  rx="2"   fill="white" />
+
+          {/* Gloss arc — upper-left of capsule */}
+          <ellipse cx="-4" cy="-8" rx="8" ry="3"
+                   fill="rgba(255,255,255,0.28)"
+                   transform="rotate(-10,-4,-8)" />
         </g>
 
-        {/* ── Wordmark ── */}
-        {/* "Medi" — white */}
+        {/* ── Wordmark ──
+         *  Single <text> + two <tspan>s.
+         *  The second <tspan> has no x="…" so it flows pixel-exactly after
+         *  the first — no gap, no overlap, regardless of font metrics.
+         */}
         <text
-          x="102" y="33"
+          y="34"
           fontFamily="Syne, system-ui, -apple-system, sans-serif"
           fontWeight="800"
           fontSize="22"
-          fill="#FFFFFF"
-          letterSpacing="-0.4"
+          letterSpacing="-0.5"
         >
-          Medi
-        </text>
-        {/* "Grab" — teal */}
-        <text
-          x="161" y="33"
-          fontFamily="Syne, system-ui, -apple-system, sans-serif"
-          fontWeight="800"
-          fontSize="22"
-          fill="#1DB89A"
-          letterSpacing="-0.4"
-        >
-          Grab
+          <tspan x="96" fill="#FFFFFF">Medi</tspan>
+          <tspan fill="#1DB89A">Grab</tspan>
         </text>
       </svg>
     </Link>

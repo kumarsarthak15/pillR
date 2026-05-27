@@ -29,56 +29,55 @@ function HeroPillMark() {
       aria-hidden="true"
     >
       {/*
-       * Pill group — centred at (1400, 255), tilted -10°.
-       * White left half + teal right half + cross + gloss + 8 speed lines.
-       * All in one <g> so tilt is shared.
+       * Giant flying-pill — centred at (1400, 255), tilted -14°.
+       * Entirely teal (#1DB89A) to match the MediGrab brand identity.
+       * mixBlendMode "screen" on the parent div makes this glow
+       * beautifully on the dark navy background.
+       *
+       * Pill: 780 × 240, cap radius 120.
+       * 8 speed lines fanning from the rear at the same angle.
        */}
-      <g transform="translate(1400,255) rotate(-10)">
+      <g transform="translate(1400,255) rotate(-14)">
 
-        {/* ── Speed lines ── (end at pill left boundary x ≈ −390) */}
-        {/* Centre line — longest, brightest */}
-        <rect x="-760" y="-6"   width="366" height="12"  rx="6"   fill="#1DB89A" opacity="0.92" />
+        {/* ── Speed lines ── */}
+        {/* Centre — longest, brightest */}
+        <rect x="-780" y="-6"   width="380" height="12"  rx="6"   fill="#1DB89A" opacity="0.92" />
         {/* ±1 */}
-        <rect x="-690" y="-26"  width="296" height="10"  rx="5"   fill="#1DB89A" opacity="0.72" />
-        <rect x="-690" y="16"   width="296" height="10"  rx="5"   fill="#1DB89A" opacity="0.72" />
+        <rect x="-710" y="-28"  width="306" height="10"  rx="5"   fill="#1DB89A" opacity="0.70" />
+        <rect x="-710" y="18"   width="306" height="10"  rx="5"   fill="#1DB89A" opacity="0.70" />
         {/* ±2 */}
-        <rect x="-610" y="-48"  width="216" height="8"   rx="4"   fill="#1DB89A" opacity="0.50" />
-        <rect x="-610" y="40"   width="216" height="8"   rx="4"   fill="#1DB89A" opacity="0.50" />
+        <rect x="-630" y="-52"  width="222" height="8"   rx="4"   fill="#1DB89A" opacity="0.46" />
+        <rect x="-630" y="44"   width="222" height="8"   rx="4"   fill="#1DB89A" opacity="0.46" />
         {/* ±3 */}
-        <rect x="-530" y="-68"  width="136" height="6"   rx="3"   fill="#1DB89A" opacity="0.30" />
-        <rect x="-530" y="62"   width="136" height="6"   rx="3"   fill="#1DB89A" opacity="0.30" />
+        <rect x="-545" y="-74"  width="138" height="6"   rx="3"   fill="#1DB89A" opacity="0.26" />
+        <rect x="-545" y="68"   width="138" height="6"   rx="3"   fill="#1DB89A" opacity="0.26" />
         {/* ±4 (outer wisp) */}
-        <rect x="-460" y="-88"  width="66"  height="5"   rx="2.5" fill="#1DB89A" opacity="0.15" />
-        <rect x="-460" y="83"   width="66"  height="5"   rx="2.5" fill="#1DB89A" opacity="0.15" />
+        <rect x="-465" y="-94"  width="68"  height="5"   rx="2.5" fill="#1DB89A" opacity="0.13" />
+        <rect x="-465" y="89"   width="68"  height="5"   rx="2.5" fill="#1DB89A" opacity="0.13" />
 
-        {/* ── Pill capsule ──
-         *  Total: 780 wide × 240 tall  → cap radius 120
-         *  Left cap centre (−270, 0) | Right cap centre (+270, 0)
-         *  Centre rect: x=−270 … +270, y=−120 … +120
+        {/* ── Pill capsule — fully teal, matching brand identity ──
+         *  No white left half. Both caps + centre rect are #1DB89A.
+         *  With screen blend mode this produces a rich teal glow on navy.
          */}
-        {/* White left half */}
-        <circle cx="-270" cy="0"  r="120" fill="white"    opacity="0.90" />
-        <rect   x="-270" y="-120" width="270" height="240" fill="white"    opacity="0.90" />
-        {/* Teal right half */}
-        <rect   x="0"   y="-120" width="270" height="240" fill="#1DB89A" />
-        <circle cx="270" cy="0"  r="120"  fill="#1DB89A" />
-        {/* Seam */}
-        <line x1="0" y1="-120" x2="0" y2="120"
-              stroke="rgba(13,31,51,0.12)" strokeWidth="4" />
-        {/* Cross on teal half (medical ✚) */}
-        <rect x="160" y="-50" width="22" height="100" rx="11" fill="white" opacity="0.92" />
-        <rect x="105" y="-16" width="115" height="32" rx="16" fill="white" opacity="0.92" />
-        {/* Gloss highlight on white half */}
+        <circle cx="-270" cy="0"  r="120" fill="#1DB89A" />
+        <rect   x="-270" y="-120" width="540" height="240" fill="#1DB89A" />
+        <circle cx="270"  cy="0"  r="120" fill="#1DB89A" />
+
+        {/* Medical cross on right half */}
+        <rect x="160" y="-50" width="22" height="100" rx="11" fill="white" opacity="0.88" />
+        <rect x="105" y="-16" width="115" height="32" rx="16" fill="white" opacity="0.88" />
+
+        {/* Gloss arc — upper-left of capsule */}
         <ellipse cx="-85" cy="-75" rx="115" ry="44"
-                 fill="rgba(255,255,255,0.18)"
+                 fill="rgba(255,255,255,0.13)"
                  transform="rotate(-8,-85,-75)" />
 
-        {/* Soft teal corona glow around the whole pill */}
-        <ellipse cx="0" cy="0" rx="420" ry="155"
+        {/* Outer corona glow ring */}
+        <ellipse cx="0" cy="0" rx="430" ry="160"
                  fill="none"
                  stroke="#1DB89A"
-                 strokeWidth="60"
-                 opacity="0.06" />
+                 strokeWidth="70"
+                 opacity="0.08" />
       </g>
     </svg>
   );
