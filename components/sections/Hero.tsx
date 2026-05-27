@@ -29,55 +29,70 @@ function HeroPillMark() {
       aria-hidden="true"
     >
       {/*
-       * Giant flying-pill — centred at (1400, 255), tilted -14°.
-       * Entirely teal (#1DB89A) to match the MediGrab brand identity.
-       * mixBlendMode "screen" on the parent div makes this glow
-       * beautifully on the dark navy background.
+       * Giant flying-pill mark — same design as the original pill-mark.png
+       * but with TEAL (#1DB89A) replacing red.
        *
-       * Pill: 780 × 240, cap radius 120.
-       * 8 speed lines fanning from the rear at the same angle.
+       * Pill: WHITE left half + TEAL right half (classic capsule split).
+       * With mixBlendMode "screen" on the dark navy background:
+       *   white half → brilliant glowing white  (like a light source)
+       *   teal half  → rich glowing teal (#29C4AB on navy)
+       *
+       * 19 speed lines fan from the tail, all converging at the rear cap
+       * edge (local x ≈ −395). They spread from y=−230 to y=+230,
+       * matching the dramatic "speed burst" of the original.
+       *
+       * Group: translate(1380, 255) rotate(-14)
+       * Pill:  cap radius 120, body 540 × 240 total
        */}
-      <g transform="translate(1400,255) rotate(-14)">
+      <g transform="translate(1380,255) rotate(-14)">
 
-        {/* ── Speed lines ── */}
-        {/* Centre — longest, brightest */}
-        <rect x="-780" y="-6"   width="380" height="12"  rx="6"   fill="#1DB89A" opacity="0.92" />
-        {/* ±1 */}
-        <rect x="-710" y="-28"  width="306" height="10"  rx="5"   fill="#1DB89A" opacity="0.70" />
-        <rect x="-710" y="18"   width="306" height="10"  rx="5"   fill="#1DB89A" opacity="0.70" />
-        {/* ±2 */}
-        <rect x="-630" y="-52"  width="222" height="8"   rx="4"   fill="#1DB89A" opacity="0.46" />
-        <rect x="-630" y="44"   width="222" height="8"   rx="4"   fill="#1DB89A" opacity="0.46" />
-        {/* ±3 */}
-        <rect x="-545" y="-74"  width="138" height="6"   rx="3"   fill="#1DB89A" opacity="0.26" />
-        <rect x="-545" y="68"   width="138" height="6"   rx="3"   fill="#1DB89A" opacity="0.26" />
-        {/* ±4 (outer wisp) */}
-        <rect x="-465" y="-94"  width="68"  height="5"   rx="2.5" fill="#1DB89A" opacity="0.13" />
-        <rect x="-465" y="89"   width="68"  height="5"   rx="2.5" fill="#1DB89A" opacity="0.13" />
+        {/* ── Speed lines — 19 total, all converging at x ≈ −395 ── */}
+        {/* Centre — longest, full opacity */}
+        <rect x="-810" y="-10"  width="415" height="20"  rx="10"  fill="#1DB89A" opacity="1.00" />
+        {/* ±1 pair */}
+        <rect x="-780" y="-35"  width="385" height="17"  rx="8.5" fill="#1DB89A" opacity="0.92" />
+        <rect x="-780" y="18"   width="385" height="17"  rx="8.5" fill="#1DB89A" opacity="0.92" />
+        {/* ±2 pair */}
+        <rect x="-740" y="-62"  width="345" height="15"  rx="7.5" fill="#1DB89A" opacity="0.80" />
+        <rect x="-740" y="47"   width="345" height="15"  rx="7.5" fill="#1DB89A" opacity="0.80" />
+        {/* ±3 pair */}
+        <rect x="-695" y="-91"  width="300" height="13"  rx="6.5" fill="#1DB89A" opacity="0.66" />
+        <rect x="-695" y="78"   width="300" height="13"  rx="6.5" fill="#1DB89A" opacity="0.66" />
+        {/* ±4 pair */}
+        <rect x="-645" y="-122" width="250" height="11"  rx="5.5" fill="#1DB89A" opacity="0.50" />
+        <rect x="-645" y="111"  width="250" height="11"  rx="5.5" fill="#1DB89A" opacity="0.50" />
+        {/* ±5 pair */}
+        <rect x="-590" y="-154" width="195" height="9"   rx="4.5" fill="#1DB89A" opacity="0.36" />
+        <rect x="-590" y="145"  width="195" height="9"   rx="4.5" fill="#1DB89A" opacity="0.36" />
+        {/* ±6 pair */}
+        <rect x="-530" y="-186" width="135" height="7"   rx="3.5" fill="#1DB89A" opacity="0.22" />
+        <rect x="-530" y="179"  width="135" height="7"   rx="3.5" fill="#1DB89A" opacity="0.22" />
+        {/* ±7 pair */}
+        <rect x="-470" y="-212" width="75"  height="6"   rx="3"   fill="#1DB89A" opacity="0.13" />
+        <rect x="-470" y="206"  width="75"  height="6"   rx="3"   fill="#1DB89A" opacity="0.13" />
+        {/* ±8 pair — outermost wisps */}
+        <rect x="-430" y="-232" width="35"  height="5"   rx="2.5" fill="#1DB89A" opacity="0.06" />
+        <rect x="-430" y="227"  width="35"  height="5"   rx="2.5" fill="#1DB89A" opacity="0.06" />
 
-        {/* ── Pill capsule — fully teal, matching brand identity ──
-         *  No white left half. Both caps + centre rect are #1DB89A.
-         *  With screen blend mode this produces a rich teal glow on navy.
-         */}
-        <circle cx="-270" cy="0"  r="120" fill="#1DB89A" />
-        <rect   x="-270" y="-120" width="540" height="240" fill="#1DB89A" />
+        {/* ── Pill capsule ── */}
+        {/* White left half */}
+        <circle cx="-270" cy="0"  r="120" fill="white"    opacity="0.94" />
+        <rect   x="-270" y="-120" width="270" height="240" fill="white"    opacity="0.94" />
+        {/* Teal right half */}
+        <rect   x="0"    y="-120" width="270" height="240" fill="#1DB89A" />
         <circle cx="270"  cy="0"  r="120" fill="#1DB89A" />
+        {/* Centre seam */}
+        <line x1="0" y1="-120" x2="0" y2="120"
+              stroke="rgba(13,31,51,0.15)" strokeWidth="4" />
 
-        {/* Medical cross on right half */}
-        <rect x="160" y="-50" width="22" height="100" rx="11" fill="white" opacity="0.88" />
-        <rect x="105" y="-16" width="115" height="32" rx="16" fill="white" opacity="0.88" />
+        {/* White medical cross on teal half */}
+        <rect x="160" y="-50" width="22" height="100" rx="11" fill="white" opacity="0.90" />
+        <rect x="105" y="-16" width="115" height="32" rx="16" fill="white" opacity="0.90" />
 
-        {/* Gloss arc — upper-left of capsule */}
+        {/* Gloss arc on white half */}
         <ellipse cx="-85" cy="-75" rx="115" ry="44"
-                 fill="rgba(255,255,255,0.13)"
+                 fill="rgba(255,255,255,0.18)"
                  transform="rotate(-8,-85,-75)" />
-
-        {/* Outer corona glow ring */}
-        <ellipse cx="0" cy="0" rx="430" ry="160"
-                 fill="none"
-                 stroke="#1DB89A"
-                 strokeWidth="70"
-                 opacity="0.08" />
       </g>
     </svg>
   );
@@ -105,7 +120,7 @@ export function Hero() {
         aria-hidden="true"
         className="hidden md:block absolute top-1/2 right-0 pointer-events-none"
         style={{
-          width: "min(38vw, 580px)",
+          width: "min(46vw, 660px)",
           aspectRatio: "1800 / 510",
           transform: "translateY(-50%)",
           mixBlendMode: "screen",
