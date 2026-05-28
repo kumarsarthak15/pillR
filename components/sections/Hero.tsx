@@ -32,73 +32,54 @@ export function Hero() {
       className="relative min-h-[calc(100dvh-4rem)] md:min-h-screen flex items-start md:items-center overflow-hidden bg-medigrab-navy"
       aria-labelledby="hero-heading"
     >
-      {/* ── Pill mark with color + gentle glow (desktop only) ── */}
+      {/* ── Delivery rider illustration (desktop) ── */}
       <div
         aria-hidden="true"
-        className="hidden md:block absolute top-1/2 pointer-events-none"
+        className="hidden md:block absolute bottom-0 right-0 pointer-events-none"
         style={{
-          right: "6%",
-          width: "min(30vw, 360px)",
-          transform: "translateY(-50%)",
+          right: "3%",
+          width: "min(38vw, 480px)",
         }}
       >
-        {/* Soft glow behind pill */}
+        {/* Soft teal glow behind rider */}
         <div
           className="absolute inset-0"
           style={{
-            filter: "blur(50px)",
-            background: "radial-gradient(ellipse at center, rgba(29,184,154,0.25) 0%, transparent 70%)",
-            transform: "scale(1.4)",
+            filter: "blur(60px)",
+            background: "radial-gradient(ellipse at 50% 60%, rgba(29,184,154,0.20) 0%, transparent 70%)",
+            transform: "scale(1.3)",
           }}
         />
 
-        {/* Floating pill — full color */}
+        {/* Rider entrance + gentle float */}
         <motion.div
-          initial={reduce ? {} : { opacity: 0, y: 30, scale: 0.9 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{ delay: 0.4, duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+          initial={reduce ? {} : { opacity: 0, x: 80 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 0.5, duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
         >
           <motion.div
             animate={reduce ? {} : {
-              y: [0, -12, 0],
-              rotate: [0, 1.5, 0],
+              y: [0, -8, 0],
             }}
             transition={{
-              duration: 6,
+              duration: 5,
               repeat: Infinity,
               ease: "easeInOut",
             }}
           >
             <Image
-              src="/pill-mark.png"
+              src="/hero-rider.png"
               alt=""
-              width={585}
-              height={417}
+              width={874}
+              height={732}
               className="w-full h-auto"
               style={{
-                filter: "drop-shadow(0 0 24px rgba(29,184,154,0.4))",
-                opacity: 0.7,
+                filter: "drop-shadow(0 8px 32px rgba(0,0,0,0.3))",
               }}
               priority
             />
           </motion.div>
         </motion.div>
-      </div>
-
-      {/* ── Mobile pill mark (smaller, simpler) ── */}
-      <div
-        aria-hidden="true"
-        className="md:hidden absolute top-6 right-0 pointer-events-none"
-        style={{ width: "45vw", maxWidth: "200px", opacity: 0.15 }}
-      >
-        <Image
-          src="/pill-mark.png"
-          alt=""
-          width={585}
-          height={417}
-          className="w-full h-auto"
-          priority
-        />
       </div>
 
       {/* Teal ambient glow — mobile: top-centre, desktop: right */}
@@ -115,7 +96,7 @@ export function Hero() {
         className="absolute inset-0 pointer-events-none hidden md:block"
         style={{
           background:
-            "radial-gradient(ellipse at 72% 50%, rgba(29,184,154,0.22) 0%, rgba(29,184,154,0.06) 38%, transparent 65%)",
+            "radial-gradient(ellipse at 75% 60%, rgba(29,184,154,0.16) 0%, rgba(29,184,154,0.04) 40%, transparent 65%)",
         }}
       />
 
