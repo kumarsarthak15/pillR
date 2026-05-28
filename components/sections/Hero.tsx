@@ -31,25 +31,53 @@ export function Hero() {
       className="relative min-h-[calc(100dvh-4rem)] md:min-h-screen flex items-start md:items-center overflow-hidden bg-medigrab-navy"
       aria-labelledby="hero-heading"
     >
-      {/* ── MediGrab flying pill mark (desktop only) ── */}
+      {/* ── Floating pill mark with glow (desktop only) ── */}
       <div
         aria-hidden="true"
         className="hidden md:block absolute top-1/2 pointer-events-none"
         style={{
-          right: "-2%",
-          width: "min(40vw, 520px)",
+          right: "6%",
+          width: "min(38vw, 480px)",
           transform: "translateY(-50%)",
-          opacity: 0.18,
         }}
       >
-        <Image
-          src="/pill-mark.png"
-          alt=""
-          width={585}
-          height={417}
-          className="w-full h-auto"
-          priority
+        {/* Teal glow behind the pill */}
+        <div
+          className="absolute inset-0"
+          style={{
+            filter: "blur(60px)",
+            background: "radial-gradient(ellipse at center, rgba(29,184,154,0.30) 0%, rgba(29,184,154,0.08) 50%, transparent 75%)",
+            transform: "scale(1.6)",
+          }}
         />
+        {/* Floating pill */}
+        <motion.div
+          initial={reduce ? {} : { opacity: 0, y: 30, scale: 0.92 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          transition={{ delay: 0.4, duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+        >
+          <motion.div
+            animate={reduce ? {} : {
+              y: [0, -14, 0],
+              rotate: [0, 1.5, 0],
+            }}
+            transition={{
+              duration: 6,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+            style={{ opacity: 0.28 }}
+          >
+            <Image
+              src="/pill-mark.png"
+              alt=""
+              width={585}
+              height={417}
+              className="w-full h-auto drop-shadow-[0_0_40px_rgba(29,184,154,0.35)]"
+              priority
+            />
+          </motion.div>
+        </motion.div>
       </div>
 
       {/* Teal ambient glow — mobile: top-centre, desktop: right */}
@@ -66,7 +94,7 @@ export function Hero() {
         className="absolute inset-0 pointer-events-none hidden md:block"
         style={{
           background:
-            "radial-gradient(circle at 80% 50%, rgba(29,184,154,0.14) 0%, rgba(29,184,154,0.04) 36%, transparent 64%)",
+            "radial-gradient(ellipse at 72% 50%, rgba(29,184,154,0.18) 0%, rgba(29,184,154,0.05) 40%, transparent 68%)",
         }}
       />
 
