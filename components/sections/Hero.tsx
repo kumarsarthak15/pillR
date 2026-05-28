@@ -29,7 +29,7 @@ export function Hero() {
 
   return (
     <section
-      className="relative min-h-[calc(100dvh-4rem)] flex items-start md:items-center overflow-hidden bg-medigrab-navy"
+      className="relative md:min-h-[calc(100dvh-4rem)] flex items-start md:items-center overflow-hidden bg-medigrab-navy"
       aria-labelledby="hero-heading"
     >
       {/* ── Delivery rider illustration (desktop) ── */}
@@ -101,10 +101,10 @@ export function Hero() {
       />
 
       {/* ── Content ── */}
-      <div className="relative z-10 mx-auto max-w-container w-full px-5 md:px-6 pt-10 pb-14 md:py-20">
+      <div className="relative z-10 mx-auto max-w-container w-full px-5 md:px-6 pt-6 pb-10 md:py-20">
         <div className="max-w-3xl">
           {/* Trust badges */}
-          <ul className="flex flex-wrap gap-1.5 md:gap-2 mb-7" aria-label="Trust signals">
+          <ul className="flex flex-wrap gap-1.5 md:gap-2 mb-5 md:mb-7" aria-label="Trust signals">
             {TRUST_BADGES.map((b, i) => (
               <motion.li
                 key={b}
@@ -147,7 +147,7 @@ export function Hero() {
             initial={reduce ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.9, duration: 0.4 }}
-            className="text-base md:text-xl text-medigrab-muted max-w-xl mb-9 md:mb-8"
+            className="text-base md:text-xl text-medigrab-muted max-w-xl mb-6 md:mb-8"
           >
             No app. No queue. Just WhatsApp.
           </motion.p>
@@ -191,7 +191,7 @@ export function Hero() {
             initial={reduce ? { opacity: 1 } : { opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1.6, duration: 0.4 }}
-            className="mt-8 md:mt-6 flex items-center gap-2 text-sm text-medigrab-muted"
+            className="mt-5 md:mt-6 flex items-center gap-2 text-sm text-medigrab-muted"
           >
             <span className="inline-block w-2 h-2 rounded-full bg-verified animate-pulse" />
             Trusted by 50+ pharmacies across Pune
