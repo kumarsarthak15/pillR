@@ -11,9 +11,15 @@ import { FinalCTA } from "@/components/sections/FinalCTA";
 import { LandingOverlay } from "@/components/sections/LandingOverlay";
 
 export const metadata: Metadata = {
-  title: "MediGrab — Medicines in 30 Minutes | Pune",
+  title: "MediGrab — Medicines in 30 Minutes via WhatsApp | Pune",
   description:
-    "Order medicines via WhatsApp. Delivered from CDSCO-licensed pharmacies in 30 minutes. Pune, India."
+    "Order medicines via WhatsApp and get them delivered in 30 minutes from CDSCO-licensed pharmacies in Pune. No app needed, no queue. Trusted by 50+ pharmacies.",
+  alternates: { canonical: "/" },
+  openGraph: {
+    title: "MediGrab — Medicines in 30 Minutes via WhatsApp",
+    description: "Get medicines delivered in 30 minutes from CDSCO-licensed pharmacies in Pune. Just WhatsApp your prescription.",
+    url: "/"
+  }
 };
 
 export default function HomePage() {

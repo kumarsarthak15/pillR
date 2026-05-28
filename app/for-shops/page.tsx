@@ -11,11 +11,18 @@ import {
 import { FAQ, type FaqItem } from "@/components/sections/FAQ";
 import { PartnerForm } from "@/components/forms/PartnerForm";
 import { RevenueCalculator } from "@/components/sections/RevenueCalculator";
+import { BreadcrumbSchema } from "@/components/seo/BreadcrumbSchema";
 
 export const metadata: Metadata = {
-  title: "Partner With MediGrab | Zero-Cost Pharmacy Partnership",
+  title: "Partner With MediGrab | Zero-Cost Pharmacy Partnership in Pune",
   description:
-    "Join 50+ pharmacies earning more with MediGrab. Zero cost. No commission. Apply in 2 minutes."
+    "Join 50+ pharmacies earning more with MediGrab. Zero cost, no commission, extra daily orders. Apply in 2 minutes and start receiving orders.",
+  alternates: { canonical: "/for-shops" },
+  openGraph: {
+    title: "Partner With MediGrab | Grow Your Pharmacy Revenue",
+    description: "Zero-cost pharmacy partnership. Get extra orders daily with no commission. Join 50+ pharmacies in Pune.",
+    url: "/for-shops"
+  }
 };
 
 const BENEFITS = [
@@ -82,9 +89,27 @@ const FAQS: FaqItem[] = [
   }
 ];
 
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: FAQS.map((faq) => ({
+    "@type": "Question",
+    name: faq.q,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: faq.a
+    }
+  }))
+};
+
 export default function ForShopsPage() {
   return (
     <>
+      <BreadcrumbSchema items={[{ name: "Home", href: "/" }, { name: "For Pharmacy Owners" }]} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       <section className="bg-medigrab-navy min-h-[70vh] flex items-center py-20">
         <div className="mx-auto max-w-container px-6 text-center">
           <p className="font-heading font-semibold text-[13px] tracking-[0.2em] uppercase text-medigrab-teal mb-5">

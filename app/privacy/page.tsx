@@ -4,7 +4,9 @@ import { SITE_CONFIG } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
-  description: `How ${SITE_CONFIG.name} collects, uses, and protects your personal data under the DPDP Act 2023.`
+  description: `How ${SITE_CONFIG.name} collects, uses, and protects your personal data under the DPDP Act 2023.`,
+  alternates: { canonical: "/privacy" },
+  robots: { index: true, follow: true }
 };
 
 export default function PrivacyPage() {

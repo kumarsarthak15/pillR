@@ -5,7 +5,9 @@ import { SITE_CONFIG, CDSCO_DISCLAIMER } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Terms of Service",
-  description: `${SITE_CONFIG.name} terms of service for customers and pharmacy partners.`
+  description: `${SITE_CONFIG.name} terms of service for customers and pharmacy partners in Pune.`,
+  alternates: { canonical: "/terms" },
+  robots: { index: true, follow: true }
 };
 
 export default function TermsPage() {

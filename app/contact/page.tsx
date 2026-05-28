@@ -3,15 +3,23 @@ import { Mail, Phone, MapPin, MessageCircle, Clock } from "lucide-react";
 import { SITE_CONFIG } from "@/lib/constants";
 import { ContactForm } from "@/components/forms/ContactForm";
 import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
+import { BreadcrumbSchema } from "@/components/seo/BreadcrumbSchema";
 
 export const metadata: Metadata = {
   title: "Contact MediGrab | Get In Touch",
-  description: `Reach the MediGrab team in ${SITE_CONFIG.city}. WhatsApp, phone, email, or contact form.`
+  description: `Reach the MediGrab team in ${SITE_CONFIG.city}. Contact us via WhatsApp, phone, email, or our online form for medicine delivery enquiries.`,
+  alternates: { canonical: "/contact" },
+  openGraph: {
+    title: "Contact MediGrab",
+    description: `Get in touch with MediGrab in ${SITE_CONFIG.city}. WhatsApp, phone, email, or contact form.`,
+    url: "/contact"
+  }
 };
 
 export default function ContactPage() {
   return (
     <>
+      <BreadcrumbSchema items={[{ name: "Home", href: "/" }, { name: "Contact" }]} />
       <section className="bg-medigrab-navy py-20">
         <div className="mx-auto max-w-container px-6 max-w-4xl">
           <h1 className="font-heading font-extrabold text-[36px] md:text-[52px] text-white mb-4">

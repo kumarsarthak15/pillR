@@ -2,11 +2,18 @@
 import Link from "next/link";
 import { Zap, ShieldCheck, Smartphone, MapPin } from "lucide-react";
 import { SITE_CONFIG } from "@/lib/constants";
+import { BreadcrumbSchema } from "@/components/seo/BreadcrumbSchema";
 
 export const metadata: Metadata = {
   title: "About MediGrab | Fast Medicine Delivery in Pune",
   description:
-    "Built in Pune. For Pune. The story behind MediGrab — why we are rebuilding medicine access on WhatsApp."
+    "Built in Pune. For Pune. The story behind MediGrab — why we are rebuilding medicine access via WhatsApp with CDSCO-licensed pharmacies.",
+  alternates: { canonical: "/about" },
+  openGraph: {
+    title: "About MediGrab | Our Story",
+    description: "Why we're rebuilding medicine access in Pune — 30 minute delivery from licensed pharmacies via WhatsApp.",
+    url: "/about"
+  }
 };
 
 const VALUES = [
@@ -19,6 +26,7 @@ const VALUES = [
 export default function AboutPage() {
   return (
     <>
+      <BreadcrumbSchema items={[{ name: "Home", href: "/" }, { name: "About" }]} />
       <section className="bg-medigrab-navy py-20">
         <div className="mx-auto max-w-container px-6 max-w-4xl">
           <h1 className="font-heading font-extrabold text-[36px] md:text-[52px] text-white mb-5 leading-tight">

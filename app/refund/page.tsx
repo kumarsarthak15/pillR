@@ -4,7 +4,9 @@ import { SITE_CONFIG } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Refund Policy",
-  description: `${SITE_CONFIG.name} refund and return policy. 5–7 business day refunds via Razorpay.`
+  description: `${SITE_CONFIG.name} refund and return policy for medicine delivery orders. 5–7 business day refunds via Razorpay.`,
+  alternates: { canonical: "/refund" },
+  robots: { index: true, follow: true }
 };
 
 export default function RefundPage() {
