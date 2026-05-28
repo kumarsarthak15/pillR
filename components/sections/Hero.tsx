@@ -139,22 +139,6 @@ export function Hero() {
               priority
             />
 
-            {/* Shimmer sweep across the pill */}
-            {!reduce && (
-              <motion.div
-                className="absolute inset-0 rounded-full"
-                style={{
-                  background: "linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.12) 50%, transparent 60%)",
-                }}
-                animate={{ x: ["-100%", "200%"] }}
-                transition={{
-                  duration: 3,
-                  repeat: Infinity,
-                  repeatDelay: 4,
-                  ease: "easeInOut",
-                }}
-              />
-            )}
           </motion.div>
         </motion.div>
       </div>
