@@ -14,6 +14,16 @@ const TRUST_BADGES = [
 
 const HEADLINE_WORDS = ["Medicines", "in", "30", "Minutes."];
 
+/** Floating orbs that drift around the pill mark */
+const ORBS = [
+  { size: 6,  x: "18%", y: "12%", delay: 0,   dur: 4.2 },
+  { size: 4,  x: "82%", y: "22%", delay: 0.8, dur: 3.6 },
+  { size: 5,  x: "75%", y: "78%", delay: 1.6, dur: 5.0 },
+  { size: 3,  x: "25%", y: "85%", delay: 0.4, dur: 3.8 },
+  { size: 4,  x: "55%", y: "8%",  delay: 1.2, dur: 4.5 },
+  { size: 3,  x: "10%", y: "55%", delay: 2.0, dur: 3.4 },
+];
+
 export function Hero() {
   const reduce = useReducedMotion();
 
@@ -31,53 +41,138 @@ export function Hero() {
       className="relative min-h-[calc(100dvh-4rem)] md:min-h-screen flex items-start md:items-center overflow-hidden bg-medigrab-navy"
       aria-labelledby="hero-heading"
     >
-      {/* ── Floating pill mark with glow (desktop only) ── */}
+      {/* ── Pill mark visual system (desktop only) ── */}
       <div
         aria-hidden="true"
         className="hidden md:block absolute top-1/2 pointer-events-none"
         style={{
-          right: "6%",
-          width: "min(38vw, 480px)",
+          right: "4%",
+          width: "min(42vw, 520px)",
           transform: "translateY(-50%)",
         }}
       >
-        {/* Teal glow behind the pill */}
-        <div
+        {/* Layer 1: Deep pulsing glow — big and soft */}
+        <motion.div
           className="absolute inset-0"
+          animate={reduce ? {} : {
+            scale: [1.5, 1.7, 1.5],
+            opacity: [0.6, 1, 0.6],
+          }}
+          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
           style={{
-            filter: "blur(60px)",
-            background: "radial-gradient(ellipse at center, rgba(29,184,154,0.30) 0%, rgba(29,184,154,0.08) 50%, transparent 75%)",
-            transform: "scale(1.6)",
+            filter: "blur(80px)",
+            background: "radial-gradient(ellipse at center, rgba(29,184,154,0.35) 0%, rgba(29,184,154,0.10) 45%, transparent 70%)",
+            transform: "scale(1.5)",
           }}
         />
-        {/* Floating pill */}
+
+        {/* Layer 2: Sharper inner glow — concentrated teal light */}
         <motion.div
-          initial={reduce ? {} : { opacity: 0, y: 30, scale: 0.92 }}
+          className="absolute inset-0"
+          animate={reduce ? {} : {
+            scale: [1.1, 1.25, 1.1],
+            opacity: [0.7, 1, 0.7],
+          }}
+          transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+          style={{
+            filter: "blur(40px)",
+            background: "radial-gradient(ellipse at center, rgba(29,184,154,0.40) 0%, rgba(62,207,176,0.15) 40%, transparent 65%)",
+            transform: "scale(1.1)",
+          }}
+        />
+
+        {/* Layer 3: Floating teal orbs */}
+        {!reduce && ORBS.map((orb, i) => (
+          <motion.div
+            key={i}
+            className="absolute rounded-full"
+            style={{
+              width: orb.size,
+              height: orb.size,
+              left: orb.x,
+              top: orb.y,
+              background: "radial-gradient(circle, rgba(62,207,176,0.9) 0%, rgba(29,184,154,0.4) 60%, transparent 100%)",
+              boxShadow: `0 0 ${orb.size * 3}px rgba(29,184,154,0.6)`,
+            }}
+            animate={{
+              y: [0, -20, 0],
+              x: [0, 8, 0],
+              opacity: [0.4, 1, 0.4],
+              scale: [1, 1.3, 1],
+            }}
+            transition={{
+              duration: orb.dur,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: orb.delay,
+            }}
+          />
+        ))}
+
+        {/* Layer 4: The actual pill — full color, vivid */}
+        <motion.div
+          initial={reduce ? {} : { opacity: 0, y: 40, scale: 0.85 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{ delay: 0.4, duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ delay: 0.3, duration: 1.4, ease: [0.16, 1, 0.3, 1] }}
         >
           <motion.div
             animate={reduce ? {} : {
-              y: [0, -14, 0],
-              rotate: [0, 1.5, 0],
+              y: [0, -16, 0],
+              rotate: [0, 2, 0],
             }}
             transition={{
               duration: 6,
               repeat: Infinity,
               ease: "easeInOut",
             }}
-            style={{ opacity: 0.28 }}
           >
             <Image
               src="/pill-mark.png"
               alt=""
               width={585}
               height={417}
-              className="w-full h-auto drop-shadow-[0_0_40px_rgba(29,184,154,0.35)]"
+              className="w-full h-auto relative"
+              style={{
+                filter: "drop-shadow(0 0 30px rgba(29,184,154,0.5)) drop-shadow(0 0 60px rgba(29,184,154,0.25))",
+                opacity: 0.85,
+              }}
               priority
             />
+
+            {/* Shimmer sweep across the pill */}
+            {!reduce && (
+              <motion.div
+                className="absolute inset-0 rounded-full"
+                style={{
+                  background: "linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.12) 50%, transparent 60%)",
+                }}
+                animate={{ x: ["-100%", "200%"] }}
+                transition={{
+                  duration: 3,
+                  repeat: Infinity,
+                  repeatDelay: 4,
+                  ease: "easeInOut",
+                }}
+              />
+            )}
           </motion.div>
         </motion.div>
+      </div>
+
+      {/* ── Mobile pill mark (smaller, simpler) ── */}
+      <div
+        aria-hidden="true"
+        className="md:hidden absolute top-6 right-0 pointer-events-none"
+        style={{ width: "45vw", maxWidth: "200px", opacity: 0.15 }}
+      >
+        <Image
+          src="/pill-mark.png"
+          alt=""
+          width={585}
+          height={417}
+          className="w-full h-auto"
+          priority
+        />
       </div>
 
       {/* Teal ambient glow — mobile: top-centre, desktop: right */}
@@ -94,7 +189,7 @@ export function Hero() {
         className="absolute inset-0 pointer-events-none hidden md:block"
         style={{
           background:
-            "radial-gradient(ellipse at 72% 50%, rgba(29,184,154,0.18) 0%, rgba(29,184,154,0.05) 40%, transparent 68%)",
+            "radial-gradient(ellipse at 72% 50%, rgba(29,184,154,0.22) 0%, rgba(29,184,154,0.06) 38%, transparent 65%)",
         }}
       />
 
