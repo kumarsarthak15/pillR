@@ -6,6 +6,18 @@
       "has": [{ "type": "host", "value": "www.medigrab.in" }],
       "destination": "https://medigrab.in/$1",
       "permanent": true
+    },
+    {
+      "source": "/(.*)",
+      "has": [{ "type": "host", "value": "pillr.in" }],
+      "destination": "https://medigrab.in/$1",
+      "permanent": true
+    },
+    {
+      "source": "/(.*)",
+      "has": [{ "type": "host", "value": "www.pillr.in" }],
+      "destination": "https://medigrab.in/$1",
+      "permanent": true
     }
   ],
   "headers": [
