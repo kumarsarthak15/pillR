@@ -3,8 +3,8 @@
   "redirects": [
     {
       "source": "/(.*)",
-      "has": [{ "type": "host", "value": "www.pillr.in" }],
-      "destination": "https://pillr.in/$1",
+      "has": [{ "type": "host", "value": "www.medigrab.in" }],
+      "destination": "https://medigrab.in/$1",
       "permanent": true
     }
   ],

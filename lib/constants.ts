@@ -1,7 +1,7 @@
 export const SITE_CONFIG = {
   name: "MediGrab",
-  domain: "pillr.in", // domain swap pending — will update when new domain is live
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://pillr.in",
+  domain: "medigrab.in",
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://medigrab.in",
   tagline: "Your pharmacy, just a text away.",
   description:
     "Get medicines delivered in 30 minutes via WhatsApp. From CDSCO-licensed pharmacies in Pune.",
