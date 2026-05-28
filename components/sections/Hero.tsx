@@ -29,7 +29,7 @@ export function Hero() {
 
   return (
     <section
-      className="relative min-h-[calc(100dvh-4rem)] md:min-h-screen flex items-start md:items-center overflow-hidden bg-medigrab-navy"
+      className="relative min-h-[calc(100dvh-4rem)] flex items-start md:items-center overflow-hidden bg-medigrab-navy"
       aria-labelledby="hero-heading"
     >
       {/* ── Delivery rider illustration (desktop) ── */}
