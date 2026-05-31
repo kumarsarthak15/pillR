@@ -5,7 +5,7 @@ import Link from "next/link";
 import { Check, ArrowRight } from "lucide-react";
 import { fadeUp, viewportOnce } from "@/lib/animations";
 
-const BENEFITS = ["Extra orders daily", "No upfront cost", "Keep your existing customers"];
+const BENEFITS = ["Extra orders daily", "No sign-up or monthly fee", "Keep your existing customers"];
 
 export function ForShopsTeaser() {
   return (
@@ -27,13 +27,13 @@ export function ForShopsTeaser() {
             Grow Your Pharmacy With Zero Investment
           </h2>
           <p className="text-lg text-[#D1D5DB] mb-8 max-w-xl">
-            Join 50+ pharmacies already earning more orders through MediGrab. No sign-up fee. No
-            commission on medicines. Just more customers walking through your WhatsApp.
+            Join 50+ pharmacies already earning more orders through MediGrab. No sign-up fee.
+            No monthly charges. A small platform fee on completed orders — we only earn when you do.
           </p>
           <Link href="/for-shops" className="btn-base btn-primary">
             Become a Partner <ArrowRight size={18} />
           </Link>
-          <p className="mt-3 text-sm text-medigrab-muted">Zero cost to join. Cancel anytime.</p>
+          <p className="mt-3 text-sm text-medigrab-muted">No sign-up fee. Cancel anytime.</p>
         </motion.div>
 
         <motion.div

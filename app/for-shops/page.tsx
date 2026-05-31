@@ -14,13 +14,13 @@ import { RevenueCalculator } from "@/components/sections/RevenueCalculator";
 import { BreadcrumbSchema } from "@/components/seo/BreadcrumbSchema";
 
 export const metadata: Metadata = {
-  title: "Partner With MediGrab | Zero-Cost Pharmacy Partnership in Pune",
+  title: "Partner With MediGrab | Pharmacy Partnership in Pune",
   description:
-    "Join 50+ pharmacies earning more with MediGrab. Zero cost, no commission, extra daily orders. Apply in 2 minutes and start receiving orders.",
+    "Join 50+ pharmacies earning more with MediGrab. No sign-up fee, no monthly charges, extra daily orders. Apply in 2 minutes and start receiving orders.",
   alternates: { canonical: "/for-shops" },
   openGraph: {
     title: "Partner With MediGrab | Grow Your Pharmacy Revenue",
-    description: "Zero-cost pharmacy partnership. Get extra orders daily with no commission. Join 50+ pharmacies in Pune.",
+    description: "Pharmacy partnership with no sign-up fee. Get extra orders daily. Join 50+ pharmacies in Pune.",
     url: "/for-shops"
   }
 };
@@ -34,9 +34,9 @@ const BENEFITS = [
   },
   {
     Icon: DollarSign,
-    title: "Zero Cost to Join",
+    title: "No Upfront Costs",
     body:
-      "No sign-up fee. No monthly charges. No commission on medicine prices. You keep your margins."
+      "No sign-up fee. No monthly charges. A small platform fee applies on completed orders — we only earn when you do."
   },
   {
     Icon: Truck,
@@ -61,7 +61,7 @@ const STEPS = [
 const FAQS: FaqItem[] = [
   {
     q: "Is there any cost to join MediGrab?",
-    a: "No. Zero. MediGrab is completely free to join for pharmacy partners during our Pune pilot. No sign-up fee, no monthly fee, no commission on medicine prices."
+    a: "No sign-up fee and no monthly charges. We earn a small platform fee on completed orders — it covers delivery operations and coordination. Full details are shared at onboarding."
   },
   {
     q: "Do I need to give exclusive rights to MediGrab?",
@@ -116,11 +116,11 @@ export default function ForShopsPage() {
             For Pharmacy Owners
           </p>
           <h1 className="font-heading font-extrabold text-[36px] md:text-[52px] text-white leading-tight max-w-3xl mx-auto mb-5">
-            Get More Customers. <span className="text-medigrab-teal">Zero Investment.</span>
+            Get More Customers. <span className="text-medigrab-teal">Zero Upfront Cost.</span>
           </h1>
           <p className="text-lg md:text-xl text-medigrab-muted max-w-2xl mx-auto mb-8">
-            Join 50+ pharmacies already earning extra revenue through MediGrab. No fees. No
-            commission on medicines. No exclusivity.
+            Join 50+ pharmacies already earning extra revenue through MediGrab. No sign-up fee.
+            No monthly charges. No exclusivity.
           </p>
           <a href="#partner-form" className="btn-base btn-primary">
             Apply Now — It&apos;s Free
@@ -128,7 +128,7 @@ export default function ForShopsPage() {
           </a>
 
           <ul className="mt-8 flex flex-wrap items-center justify-center gap-2">
-            {["Zero cost to join", "Cancel anytime", "No exclusivity"].map((t) => (
+            {["No sign-up fee", "Cancel anytime", "No exclusivity"].map((t) => (
               <li
                 key={t}
                 className="inline-flex items-center gap-1.5 rounded-full bg-medigrab-card px-3 py-1.5 text-[13px] font-heading font-semibold text-medigrab-muted"

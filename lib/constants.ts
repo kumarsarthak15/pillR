@@ -7,11 +7,10 @@ export const SITE_CONFIG = {
     "Get medicines delivered in 30 minutes via WhatsApp. From CDSCO-licensed pharmacies in Pune.",
   city: "Pune",
 
-  // PLACEHOLDERS — replace before launch (also flow through env at runtime where applicable)
-  legalEntity: "[Legal Entity Name Pvt. Ltd.]",
-  address: "[Registered Business Address, Pune, Maharashtra, India — PIN]",
-  phone: "+91 XXXXX XXXXX",
-  email: "hello@medigrab.in",
+  legalEntity: "Medigrab India Private Limited",
+  address: "73/2/2 Ramradha Bangala, Radhakrushna Society, Katraj, Pune - 411046, Maharashtra",
+  phone: "+91-8788876943",
+  email: "contact@medigrab.in",
 
   whatsappNumber: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "91XXXXXXXXXX",
   whatsappOrderMessage:
@@ -35,7 +34,7 @@ export const LEGAL_LINKS = [
 export const SOCIAL_LINKS = [
   { href: "https://instagram.com/medigrab.in", label: "Instagram", icon: "instagram" },
   { href: "https://twitter.com/medigrab_in", label: "Twitter / X", icon: "twitter" },
-  { href: "https://www.linkedin.com/company/medigrab", label: "LinkedIn", icon: "linkedin" }
+  { href: "https://www.linkedin.com/company/medigrab-in/", label: "LinkedIn", icon: "linkedin" }
 ] as const;
 
 export const COVERAGE_AREAS = [
