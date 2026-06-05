@@ -4,28 +4,51 @@ import { useState } from "react";
 import { CheckCircle } from "lucide-react";
 import { whatsappUrl } from "@/lib/constants";
 import { trackContactFormSubmit } from "@/lib/analytics";
+import { submitToWeb3Forms } from "@/lib/formSubmit";
 
-// TODO Phase 1: replace WhatsApp handoff with email API/webhook (Resend, Web3Forms, etc.).
 const SUBJECTS = ["General Inquiry", "Partnership", "Investment", "Press", "Complaint", "Other"];
 
 export function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
 
-  function onSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    const data = new FormData(e.currentTarget);
-    const msg = `Hi MediGrab! New contact form submission.
+    const form = e.currentTarget;
+    const data = new FormData(form);
 
-Name: ${data.get("name")}
-Email: ${data.get("email")}
-Subject: ${data.get("subject")}
+    const name = String(data.get("name") || "");
+    const email = String(data.get("email") || "");
+    const subject = String(data.get("subject") || "");
+    const message = String(data.get("message") || "");
+
+    setSubmitting(true);
+
+    // 1. Capture the lead to our inbox (non-blocking on failure).
+    await submitToWeb3Forms({
+      form_type: "contact",
+      subject: `[Contact] ${subject} — ${name}`,
+      from_name: name,
+      email,
+      message,
+      page: typeof window !== "undefined" ? window.location.href : ""
+    });
+
+    // 2. Track + open WhatsApp for instant follow-up.
+    const waMsg = `Hi MediGrab! New contact form submission.
+
+Name: ${name}
+Email: ${email}
+Subject: ${subject}
 
 Message:
-${data.get("message")}`;
+${message}`;
     trackContactFormSubmit();
-    window.open(whatsappUrl(msg), "_blank", "noopener,noreferrer");
+    window.open(whatsappUrl(waMsg), "_blank", "noopener,noreferrer");
+
+    setSubmitting(false);
     setSubmitted(true);
-    e.currentTarget.reset();
+    form.reset();
   }
 
   if (submitted) {
@@ -44,8 +67,8 @@ ${data.get("message")}`;
       <FormField name="email" label="Email" type="email" required />
       <FormSelect name="subject" label="Subject" options={SUBJECTS} required />
       <FormField name="message" label="Message" textarea required minLength={20} />
-      <button type="submit" className="btn-base btn-primary w-full">
-        Send Message
+      <button type="submit" disabled={submitting} className="btn-base btn-primary w-full disabled:opacity-60 disabled:cursor-not-allowed">
+        {submitting ? "Sending…" : "Send Message"}
       </button>
     </form>
   );

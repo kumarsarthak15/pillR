@@ -287,3 +287,152 @@ body {
     color: #000000 !important;
   }
 }
+
+/* ─────────────────────────────────────────────
+   Blog body typography (.prose-medigrab)
+   ───────────────────────────────────────────── */
+.prose-medigrab {
+  color: #D1D5DB;
+  font-family: var(--font-dm-sans), system-ui, sans-serif;
+  font-size: 17px;
+  line-height: 1.75;
+}
+
+.prose-medigrab > * + * {
+  margin-top: 1.25em;
+}
+
+.prose-medigrab h2 {
+  color: #FFFFFF;
+  font-family: var(--font-syne), system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 1.25;
+  margin-top: 2.2em;
+  margin-bottom: 0.6em;
+  letter-spacing: -0.01em;
+}
+
+.prose-medigrab h3 {
+  color: #FFFFFF;
+  font-family: var(--font-syne), system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 21px;
+  line-height: 1.3;
+  margin-top: 1.8em;
+  margin-bottom: 0.5em;
+}
+
+.prose-medigrab p {
+  margin-top: 0;
+  margin-bottom: 1.1em;
+}
+
+.prose-medigrab strong {
+  color: #FFFFFF;
+  font-weight: 600;
+}
+
+.prose-medigrab em {
+  color: #E5E7EB;
+  font-style: italic;
+}
+
+.prose-medigrab a {
+  color: var(--medigrab-teal);
+  text-decoration: underline;
+  text-decoration-color: rgba(29, 184, 154, 0.4);
+  text-underline-offset: 3px;
+  transition: text-decoration-color var(--transition-fast) ease;
+}
+
+.prose-medigrab a:hover {
+  text-decoration-color: var(--medigrab-teal);
+}
+
+.prose-medigrab ul,
+.prose-medigrab ol {
+  margin: 1.2em 0;
+  padding-left: 1.4em;
+}
+
+.prose-medigrab ul { list-style-type: disc; }
+.prose-medigrab ol { list-style-type: decimal; }
+
+.prose-medigrab li {
+  margin-bottom: 0.55em;
+  padding-left: 0.3em;
+}
+
+.prose-medigrab li::marker {
+  color: var(--medigrab-teal);
+}
+
+.prose-medigrab blockquote {
+  border-left: 3px solid var(--medigrab-teal);
+  padding-left: 1.2em;
+  margin: 1.6em 0;
+  color: #E5E7EB;
+  font-style: italic;
+}
+
+.prose-medigrab code {
+  background-color: rgba(29, 184, 154, 0.12);
+  color: #3ECFB0;
+  padding: 0.15em 0.4em;
+  border-radius: 4px;
+  font-family: var(--font-dm-mono), ui-monospace, monospace;
+  font-size: 0.92em;
+}
+
+.prose-medigrab pre {
+  background-color: var(--medigrab-navy);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 10px;
+  padding: 1em 1.2em;
+  overflow-x: auto;
+  margin: 1.5em 0;
+}
+
+.prose-medigrab pre code {
+  background: none;
+  color: #E5E7EB;
+  padding: 0;
+}
+
+.prose-medigrab hr {
+  border: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  margin: 2.4em 0;
+}
+
+.prose-medigrab img {
+  border-radius: 12px;
+  margin: 1.5em 0;
+}
+
+.prose-medigrab table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5em 0;
+  font-size: 15px;
+}
+
+.prose-medigrab th,
+.prose-medigrab td {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 0.7em 0.6em;
+  text-align: left;
+}
+
+.prose-medigrab th {
+  color: #FFFFFF;
+  font-family: var(--font-syne), system-ui, sans-serif;
+  font-weight: 600;
+}
+
+@media (max-width: 640px) {
+  .prose-medigrab { font-size: 16px; }
+  .prose-medigrab h2 { font-size: 22px; }
+  .prose-medigrab h3 { font-size: 19px; }
+}

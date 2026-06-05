@@ -52,7 +52,7 @@ export default function AboutPage() {
               <p className="text-[#D1D5DB] mb-3">
                 Existing apps demand prescriptions through clunky uploads. E-pharmacies ship in
                 2–4 days. Local shops close at 10 PM. And patients live in fear of fake or
-                substituted medicine. {/* TODO: replace with real stat once available */}
+                substituted medicine.
               </p>
               <p className="text-[#D1D5DB]">
                 When a parent calls at midnight asking for medicine, every existing option

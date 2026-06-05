@@ -4,30 +4,62 @@ import { useState } from "react";
 import { CheckCircle, Lock } from "lucide-react";
 import { whatsappUrl } from "@/lib/constants";
 import { trackPartnerFormSubmit } from "@/lib/analytics";
+import { submitToWeb3Forms } from "@/lib/formSubmit";
 
-// TODO Phase 1: replace WhatsApp redirect with API call → Airtable / webhook → CRM.
 export function PartnerForm() {
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
   const [agreed, setAgreed] = useState(false);
 
-  function onSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     if (!agreed) return;
-    const data = new FormData(e.currentTarget);
-    const msg = `Hi MediGrab! I'd like to partner my pharmacy.
+    const form = e.currentTarget;
+    const data = new FormData(form);
 
-Pharmacy Name: ${data.get("shopName")}
-Owner / Manager: ${data.get("ownerName")}
-Phone: ${data.get("phone")}
-Email: ${data.get("email") || "—"}
-Address: ${data.get("address")}
-Drug Licence Number: ${data.get("licence")}
-Pin Code: ${data.get("pin")}
-Heard from: ${data.get("source")}`;
+    const shopName = String(data.get("shopName") || "");
+    const ownerName = String(data.get("ownerName") || "");
+    const phone = String(data.get("phone") || "");
+    const email = String(data.get("email") || "");
+    const address = String(data.get("address") || "");
+    const licence = String(data.get("licence") || "");
+    const pin = String(data.get("pin") || "");
+    const source = String(data.get("source") || "");
+
+    setSubmitting(true);
+
+    // 1. Capture pharmacy lead to inbox.
+    await submitToWeb3Forms({
+      form_type: "pharmacy_partner",
+      subject: `[Pharmacy Partner] ${shopName} — ${ownerName}`,
+      from_name: ownerName,
+      email,
+      phone,
+      pharmacy_name: shopName,
+      pharmacy_address: address,
+      drug_licence_number: licence,
+      pin_code: pin,
+      heard_from: source,
+      page: typeof window !== "undefined" ? window.location.href : ""
+    });
+
+    // 2. Track + open WhatsApp for immediate engagement.
+    const waMsg = `Hi MediGrab! I'd like to partner my pharmacy.
+
+Pharmacy Name: ${shopName}
+Owner / Manager: ${ownerName}
+Phone: ${phone}
+Email: ${email || "—"}
+Address: ${address}
+Drug Licence Number: ${licence}
+Pin Code: ${pin}
+Heard from: ${source}`;
     trackPartnerFormSubmit();
-    window.open(whatsappUrl(msg), "_blank", "noopener,noreferrer");
+    window.open(whatsappUrl(waMsg), "_blank", "noopener,noreferrer");
+
+    setSubmitting(false);
     setSubmitted(true);
-    e.currentTarget.reset();
+    form.reset();
   }
 
   if (submitted) {
@@ -70,10 +102,11 @@ Heard from: ${data.get("source")}`;
 
       <button
         type="submit"
-        className="btn-base btn-primary w-full"
+        disabled={submitting}
+        className="btn-base btn-primary w-full disabled:opacity-60 disabled:cursor-not-allowed"
         aria-label="Submit partner application"
       >
-        Submit Application
+        {submitting ? "Submitting…" : "Submit Application"}
       </button>
 
       <p className="flex items-center justify-center gap-2 text-sm text-medigrab-muted">

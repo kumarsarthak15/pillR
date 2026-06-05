@@ -144,7 +144,8 @@ const orgSchema = {
   },
   image: `${SITE_CONFIG.url}/og-image.png`,
   description: SITE_CONFIG.description,
-  foundingDate: "2024",
+  foundingDate: "2026-05-30",
+  legalName: "Medigrab India Private Limited",
   foundingLocation: { "@type": "Place", name: "Pune, Maharashtra, India" },
   sameAs: SOCIAL_LINKS.map((s) => s.href),
   address: {
@@ -152,7 +153,7 @@ const orgSchema = {
     streetAddress: SITE_CONFIG.address,
     addressLocality: SITE_CONFIG.city,
     addressRegion: "MH",
-    postalCode: "411001",
+    postalCode: "411046",
     addressCountry: "IN"
   },
   contactPoint: [
@@ -195,10 +196,10 @@ const localBusinessSchema = {
     streetAddress: SITE_CONFIG.address,
     addressLocality: SITE_CONFIG.city,
     addressRegion: "MH",
-    postalCode: "411001",
+    postalCode: "411046",
     addressCountry: "IN"
   },
-  geo: { "@type": "GeoCoordinates", latitude: 18.5204, longitude: 73.8567 },
+  geo: { "@type": "GeoCoordinates", latitude: 18.4574, longitude: 73.8675 },
   areaServed: [
     { "@type": "City", name: "Pune" },
     { "@type": "Place", name: "Koregaon Park, Pune" },
